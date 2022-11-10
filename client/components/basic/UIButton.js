@@ -1,6 +1,6 @@
-import React from "react"
-import { Text, TouchableOpacity } from "react-native"
-import tw from "../../utils/config/tailwindConf"
+import React from 'react'
+import { Text, TouchableOpacity } from 'react-native'
+import tw from '../../utils/config/tailwindConf'
 
 const UIButton = (props) => {
   return (
@@ -8,9 +8,7 @@ const UIButton = (props) => {
       style={tw`bg-${props.color} items-center  w-${props.width} p-${props.padding} rounded-${props.rounded}`}
       onPress={props.onPress}
     >
-      <Text
-        style={tw`text-${props.textColor} font-bold text-${props.textSize}`}
-      >
+      <Text style={tw`text-${props.textColor} font-bold text-${props.textSize}`}>
         {props.text}
       </Text>
     </TouchableOpacity>

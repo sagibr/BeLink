@@ -1,5 +1,5 @@
-import { create } from "twrnc"
+import { create } from 'twrnc'
 
-const tw = create(require("./tailwind.config"))
+const tw = create(require('./tailwind.config'))
 
 export default tw

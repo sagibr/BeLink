@@ -1,7 +1,7 @@
-import { NavigationContainer } from "@react-navigation/native"
-import { Provider } from "react-redux"
-import StackNavigator from "./StackNavigator"
-import { store } from "./utils/redux/store/store"
+import { NavigationContainer } from '@react-navigation/native'
+import { Provider } from 'react-redux'
+import StackNavigator from './StackNavigator'
+import { store } from './utils/redux/store/store'
 
 export default function App() {
   return (
