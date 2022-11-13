@@ -56,7 +56,7 @@ const Swiper = () => {
   ).current
 
   return (
-    <View style={tw` h-3/4 w-full `}>
+    <View style={tw` h-full w-full `}>
       {usersMatch.map((user, index) => {
         const isFirst = index == 0
         const panHandlers = isFirst ? panResponder.panHandlers : {}
