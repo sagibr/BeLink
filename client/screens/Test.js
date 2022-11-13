@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import Input from '../components/basic/Input'
 import UIButton from '../components/basic/UIButton'
 import tw from '../utils/config/tailwindConf'
 
@@ -16,6 +17,13 @@ const Test = () => {
         textSize="2xl"
         rounded="3xl"
       />
+      <Input
+        height="96"
+        placeholder="text"
+        border="2"
+        rounded_border="lg"
+      />
+
     </View>
   )
 }
