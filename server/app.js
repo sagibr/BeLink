@@ -4,6 +4,7 @@ import express from 'express'
 import credentials from './middleware/credentials.js'
 import verifyJWT from './middleware/verifyJWT.js'
 import authRouter from './routes/authRouter.js'
+import userRouter from './routes/userRouter.js'
 
 const app = express()
 
@@ -26,5 +27,7 @@ app.use(cookieParser())
 app.use('/auth', authRouter)
 
 app.use(verifyJWT)
+
+app.use(`/user`, userRouter)
 
 export default app

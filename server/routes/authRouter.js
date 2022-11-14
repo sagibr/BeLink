@@ -4,7 +4,7 @@ import {
   handleLogout,
   handleRefreshToken,
   handleRegister,
-} from '../controllers/userController.js'
+} from '../controllers/authController.js'
 
 const router = express.Router()
 
