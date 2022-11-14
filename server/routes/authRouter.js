@@ -2,6 +2,7 @@ import express from 'express'
 import {
   handleLogin,
   handleLogout,
+  handleRefreshToken,
   handleRegister,
 } from '../controllers/userController.js'
 
@@ -15,6 +16,9 @@ router.post(`/register`, (req, res) => {
 })
 router.get(`/logout`, (req, res) => {
   handleLogout(req, res)
+})
+router.get(`/refresh`, (req, res) => {
+  handleRefreshToken(req, res)
 })
 
 export default router
