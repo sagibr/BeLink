@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
+import FileUpload from '../components/basic/FileUpload'
 import UIButton from '../components/basic/UIButton'
 import tw from '../utils/config/tailwindConf'
 
@@ -16,6 +17,7 @@ const Test = () => {
         textSize="2xl"
         rounded="3xl"
       />
+      <FileUpload color="red" size={70} padding="5" margin="5" />
     </View>
   )
 }
