@@ -1,11 +1,12 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { TextInput, View } from 'react-native'
+import tw from '../../utils/config/tailwindConf'
 
-const Input = () => {
+const Input = (props) => {
   return (
-    <View>
-      <Text>Input</Text>
-    </View>
+    <TextInput style={tw`rounded-${props.rounded_border} h-${props.height}  border-${props.border}`} placeholder={props.placeholder}
+    >
+    </TextInput>
   )
 }
 
