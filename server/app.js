@@ -2,7 +2,8 @@ import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express from 'express'
 import credentials from './middleware/credentials.js'
-import userRouter from './routes/userRouter.js'
+import verifyJWT from './middleware/verifyJWT.js'
+import authRouter from './routes/authRouter.js'
 
 const app = express()
 
@@ -22,6 +23,8 @@ app.use(express.json())
 //middleware for cookies
 app.use(cookieParser())
 
-app.use('/user', userRouter)
+app.use('/auth', authRouter)
+
+app.use(verifyJWT)
 
 export default app

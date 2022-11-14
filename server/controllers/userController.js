@@ -69,10 +69,10 @@ export const handleLogin = async (req, res) => {
   //evaluate password
   const match = await bcrypt.compare(password, foundUser.password)
   if (match) {
-    const accessToken = jwt.sign({}, ACCESS_TOKEN_SECRET, {
+    const accessToken = jwt.sign({ userEmail: foundUser.email }, ACCESS_TOKEN_SECRET, {
       expiresIn: '15m',
     })
-    const refreshToken = jwt.sign({}, REFRESH_TOKEN_SECRET, {
+    const refreshToken = jwt.sign({ userEmail: foundUser.email }, REFRESH_TOKEN_SECRET, {
       expiresIn: '1d',
     })
     //saving refreshToken with current user
@@ -130,4 +130,35 @@ export const handleLogout = async (req, res) => {
     secure: NODE_ENV === 'prod' ? true : false,
   })
   return res.sendStatus(204)
+}
+
+export const handleRefreshToken = async (req, res) => {
+  const cookies = req.cookies
+  if (!cookies?.jwt) return res.sendStatus(401)
+
+  const refreshToken = cookies.jwt
+  const foundUser = await User.findOne({ refreshToken: refreshToken }).exec()
+  if (!foundUser) return res.sendStatus(403) //Forbidden
+
+  //evaluate jwt
+  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
+    if (err || foundUser.email !== decoded.userEmail) return res.sendStatus(403) //Forbidden
+
+    const accessToken = jwt.sign({ userEmail: decoded.userEmail }, ACCESS_TOKEN_SECRET, {
+      expiresIn: '15m',
+    })
+
+    const user = {
+      name: foundUser.name,
+      email: foundUser.email,
+      profession: foundUser.profession,
+      image: foundUser.image,
+      about: foundUser.about,
+      links: foundUser.links,
+      education: foundUser.education,
+      experience: foundUser.experience,
+      tech: foundUser.tech,
+    }
+    res.json({ user, accessToken })
+  })
 }
