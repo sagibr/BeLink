@@ -7,8 +7,6 @@ import tw from '../../utils/config/tailwindConf'
 const Select = (propsprops) => {
   const [selectedValue, setSelectedValue] = useState(props.array[0])
   const [isSelected, setSelection] = useState(false)
-  const [selectedValue, setSelectedValue] = useState(props.array[0])
-  const [isSelected, setSelection] = useState(false);
   return (
     <View style={styles.container}>
       <View
@@ -59,24 +57,6 @@ const styles = StyleSheet.create({
   },
   checkbox: {
     alignSelf: 'center',
-  },
-  label: {
-    margin: 8,
-  },
-})
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 40,
-    alignItems: 'center',
-  },
-  checkboxContainer: {
-    flexDirection: "row",
-    marginBottom: 20,
-  },
-  checkbox: {
-    alignSelf: "center",
   },
   label: {
     margin: 8,
