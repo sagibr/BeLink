@@ -2,8 +2,14 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import FileUpload from '../components/basic/FileUpload'
 import UIButton from '../components/basic/UIButton'
+import QuizTemplate from '../components/templates/QuizTemplate'
 import tw from '../utils/config/tailwindConf'
-
+import AddEducation from './authorization/register/quiz/AddEducation'
+import AddExperience from './authorization/register/quiz/AddExperience'
+import AddExtraKnowledge from './authorization/register/quiz/AddExtraKnowledge'
+import AddName from './authorization/register/quiz/AddName'
+import Welcome from './Welcome'
+import TimeCalc from '../components/basic/TimeCalc'
 const Test = () => {
   return (
     <View style={tw`flex flex-col w-full items-center	justify-center`}>
