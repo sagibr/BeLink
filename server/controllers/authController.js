@@ -20,6 +20,7 @@ export const handleRegister = async (req, res) => {
     education,
     experience,
     tech,
+    company,
   } = req.body
 
   if (
@@ -30,7 +31,8 @@ export const handleRegister = async (req, res) => {
     !about ||
     !education ||
     !experience ||
-    !tech
+    !tech ||
+    !company
   ) {
     return res.status(400).json({ message: 'missing inputs' })
   }
@@ -52,6 +54,8 @@ export const handleRegister = async (req, res) => {
       education: education,
       experience: experience,
       tech: tech,
+      company: company,
+      match: [],
     })
     res.status(201).json({ sucess: `New user ${email} created` })
   } catch (err) {
@@ -96,6 +100,8 @@ export const handleLogin = async (req, res) => {
       education: foundUser.education,
       experience: foundUser.experience,
       tech: foundUser.tech,
+      company: foundUser.company,
+      match: foundUser.match,
     }
     res.json({ user, accessToken })
   } else {
@@ -158,6 +164,8 @@ export const handleRefreshToken = async (req, res) => {
       education: foundUser.education,
       experience: foundUser.experience,
       tech: foundUser.tech,
+      company: foundUser.company,
+      match: foundUser.match,
     }
     res.json({ user, accessToken })
   })
