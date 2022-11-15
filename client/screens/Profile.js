@@ -23,22 +23,22 @@ const Profile = () => {
   return (
     <View style={tw` w-full h-full `}>
       {/* image */}
-      <View style={tw` flex-2 m-top-2`}>
+      <View style={tw` flex-1 m-top-5`}>
         <Image
-          style={tw` w-80 h-full m-left-12 rounded-full`}
+          style={tw` w-50 h-50 rounded-full m-left-1/4 `}
           source={{ uri: user.image }}
         />
       </View>
 
       <View style={tw` flex-3 `}>
         {/* details */}
-        <View style={tw` flex-1 m-top-3`}>
+        <View style={tw` flex-1 m-top-1`}>
           <View>
-            <Text style={tw`text-3xl font-semibold text-center p-top-2`}>
+            <Text style={tw`text-3xl font-semibold text-center m-top-6`}>
               {user.name}
             </Text>
           </View>
-          <View style={tw`flex-row justify-center justify-around p-top-3`}>
+          <View style={tw`flex-row justify-center m-top-9`}>
             <Text>{user.profession}</Text>
             {/* <Text>{user.education[0]?.location}</Text> */}
           </View>
@@ -48,9 +48,9 @@ const Profile = () => {
 
         {/* langauge */}
         <Text style={tw`text-center font-bold m-top-3`}>technology:</Text>
-        <View style={tw` flex flex-row flex-wrap flex-1.5 rounded-full`}>
+        <View style={tw`flex flex-2 flex-nowrap rounded-full`}>
           {Object.keys(user.tech).map((tech, index) => {
-            return <Skills key={index} tech={tech} style={tw`rounded-xl`} />
+            return <Skills key={index} tech={tech} />
           })}
         </View>
 
@@ -70,7 +70,7 @@ const Profile = () => {
         <View style={tw`w-full h-1/800 bg-black`} />
 
         {/* links */}
-        <View style={tw`flex-row justify-center justify-around m-3`}>
+        <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
           <Entypo
             name="linkedin-with-circle"
             size={24}
