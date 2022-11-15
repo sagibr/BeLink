@@ -34,6 +34,11 @@ const UserSchema = mongoose.Schema([
     ],
     tech: {},
     refreshToken: { type: String },
+    company: {
+      isCompany: { type: Boolean, required: true },
+      lookingForDegree: { type: Boolean },
+    },
+    match: [{ type: String }],
   },
 ])
 
