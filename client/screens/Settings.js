@@ -20,7 +20,7 @@ const Settings = () => {
   }
 
   return (
-    <View style={[tw`h-full bg-white pt-20`, { opacity: 0.89 }]}>
+    <View style={[tw`h-full bg-black-500 pt-20`, { opacity: 0.89 }]}>
       {/* image */}
       <View style={tw`flex 1`}>
         <Image
