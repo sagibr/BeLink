@@ -21,13 +21,11 @@ const AddExtraKnowledge = () => {
   ]
 
   useEffect(() => {
-    console.log(inputData)
     const newData = {}
     for (const item of inputData) {
       newData[item.tech] = item.time
       setData({ ...newData })
     }
-    console.log(data)
   }, [inputData])
   return (
     <View>
@@ -60,7 +58,7 @@ const AddExtraKnowledge = () => {
                       setInputData([...newInputData])
                     }}
                     height="20"
-                    placeholder={inputData[index].time}
+                    placeholder={item.time.toString()}
                     border="2"
                     rounded_border="lg"
                   />

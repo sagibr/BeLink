@@ -16,9 +16,9 @@ const Select = (props) => {
           selectedValue={selectedValue}
           dropdownIconColor="white"
           style={tw`bg-background w-34 h-10 rounded-lg text-white`}
-          onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-          onChange={(e) => {
-            props.setData(e.target.value)
+          onValueChange={(newValue) => {
+            setSelectedValue(newValue)
+            props.setData(newValue)
           }}
         >
           {props.array.map((e, i) => {

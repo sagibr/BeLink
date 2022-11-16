@@ -9,7 +9,7 @@ const AddExperience = () => {
   const [data, setData] = useState({
     location: '',
     time: 0,
-    profession: '',
+    role: '',
   })
 
   const selectArray = [
@@ -46,6 +46,14 @@ const AddExperience = () => {
               placeholder="role"
               border="2"
               rounded_border="lg"
+            />
+            <Input
+              setData={(value) => setData({ ...data, time: value })}
+              height="20"
+              placeholder="time in months"
+              border="2"
+              rounded_border="lg"
+              type="number-pad"
             />
           </>
         }
