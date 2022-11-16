@@ -2,7 +2,7 @@ import { View, Text, Image, Animated, StyleSheet, Button } from 'react-native'
 import React from 'react'
 import tw from '../../utils/config/tailwindConf'
 import Choice from './Choice'
-import { Octicons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { ACTION_OFFSET, VERTICAL_MARGIN } from '../../utils/constants-swiper'
 
 const Card = ({ isFirst, user, swipe, tiltSign, ...rest }) => {
@@ -38,22 +38,17 @@ const Card = ({ isFirst, user, swipe, tiltSign, ...rest }) => {
       <Image style={tw`w-full h-full rounded-lg`} source={{ uri: user.image }} />
 
       <View
-        style={tw`absolute bottom-0 bg-white w-full h-20 flex-row justify-center justify-between rounded-b-md px-6 py-2 bg-opacity-10`}
+        style={tw`absolute bottom-0 bg-white w-full h-20 flex-row justify-center justify-between rounded-b-md items-center content-center px-6 py-2 bg-opacity-10`}
       >
         <View>
           <Text style={tw` text-xl font-semibold text-white`}>{user.username}</Text>
           <Text style={tw`text-white`}>{user.profession}</Text>
         </View>
-        <Octicons
-          name="info"
-          size={50}
-          color="white"
-          style={tw`flex justify-center items-center`}
-        />
         <View
-          style={tw`w-15 h-15 border-2 border-primary rounded-full justify-center items-center `}
+          style={tw`w-10 h-10 border-2 border-primary rounded-full justify-center items-center content-center `}
         >
-          <Text style={tw`text-xl font-bold text-white`}>{user.grade}</Text>
+          {/* <Text style={tw`text-xl font-bold text-white`}>{user.grade}</Text> */}
+          <MaterialCommunityIcons name="information-variant" size={24} color="white" />
         </View>
       </View>
 
