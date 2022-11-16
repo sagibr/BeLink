@@ -1,42 +1,81 @@
-import React from 'react'
-import { Text, Touchable, View, Image, TouchableNativeFeedback } from 'react-native'
-import tw from '../../utils/config/tailwindConf'
-// import userImage from '../../images/userimage.png'
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { View, Text, Pressable, SafeAreaView, FlatList } from "react-native";
+import ChatComponent from "../../components/basic/ChatComponent";
+import { styles } from "../../utils/styles";
+import socket from "../../utils/socket/socket";
+import { Feather } from "@expo/vector-icons";
 
-const ChatList = () => {
-  return (
-    <TouchableNativeFeedback>
-      <View style={tw`h-100% w-100% `}>
-        <View style={tw`bg-background flex-row h-10% w-100% items-center mb-1`}>
-          {/* <Image source={''}></Image> */}
-          <Text style={tw`ml-3`}>Image</Text>
-          <View style={tw`ml-9`}>
-            <Text>userName</Text>
-            <Text>
-              {'Hey, this is a random message which was created by Matan!'.slice(0, 20) +
-                '...'}
-            </Text>
-          </View>
-        </View>
-        <View style={tw`bg-background flex-row h-10% w-100% items-center `}>
-          {/* <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-            }}
-          ></Image> */}
-          <Text style={tw`ml-3`}>Image</Text>
-          <View style={tw`ml-9`}>
-            <Text>userName</Text>
-            <Text>
-              {/*messages[0].slice(0,20)+'...'*/}
-              {'Hey, this is a random message which was created by Matan!'.slice(0, 20) +
-                '...'}
-            </Text>
-          </View>
-        </View>
-      </View>
-    </TouchableNativeFeedback>
-  )
-}
+const Chat = () => {
 
-export default ChatList
+    //👇🏻 Dummy list of rooms
+    const Dummyrooms = [
+        {
+            id: "1",
+            name: "Novu Hangouts",
+            messages: [
+                {
+                    id: "1a",
+                    text: "Hello guys, welcome!",
+                    time: "07:50",
+                    user: "Tomer",
+                },
+                {
+                    id: "1b",
+                    text: "Hi Tomer, thank you! 😇",
+                    time: "08:50",
+                    user: "David",
+                },
+            ],
+        },
+        {
+            id: "2",
+            name: "Hacksquad Team 1",
+            messages: [
+                {
+                    id: "2a",
+                    text: "Guys, who's awake? 🙏🏽",
+                    time: "12:50",
+                    user: "Team Leader",
+                },
+                {
+                    id: "2b",
+                    text: "What's up? 🧑🏻‍💻",
+                    time: "03:50",
+                    user: "Victoria",
+                },
+            ],
+        },
+    ];
+    const [rooms, setRooms]= useState(Dummyrooms)
+    const [isFirst, setIsFirst] = useState(true);
+    console.log(rooms);
+    
+    
+    return (
+        <SafeAreaView style={styles.chatscreen}>
+            <View style={styles.chattopContainer}>
+                <View style={styles.chatheader}>
+                    <Text style={styles.chatheading}>Chats</Text>
+                    <Pressable>
+						<Feather name='edit' size={24} color='green' />
+					</Pressable>
+                </View>
+            </View>
+
+            <View style={styles.chatlistContainer}>
+                {rooms.length > 0 ? (
+                    rooms.map((item, index)=>{
+                        return <ChatComponent key={index} item={item} />
+                    })
+                ) : (
+                    <View style={styles.chatemptyContainer}>
+                        <Text style={styles.chatemptyText}>No rooms created!</Text>
+                        <Text>Click the icon above to create a Chat room</Text>
+                    </View>
+                )}
+            </View>
+        </SafeAreaView>
+    );
+};
+
+export default Chat;
