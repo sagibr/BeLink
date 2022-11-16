@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { View, StyleSheet,Text } from 'react-native'
+import { View, StyleSheet, Text } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
 import { CheckBox } from '@react-native-community/checkbox'
 import tw from '../../utils/config/tailwindConf'
 
 const Select = (props) => {
   const [selectedValue, setSelectedValue] = useState(props.array[0])
-  const [isSelected, setSelection] = useState(false);
+  const [isSelected, setSelection] = useState(false)
   return (
     <View style={styles.container}>
       <View
@@ -17,6 +17,9 @@ const Select = (props) => {
           dropdownIconColor="white"
           style={tw`bg-background w-34 h-10 rounded-lg text-white`}
           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+          onChange={(e) => {
+            props.setData(e.target.value)
+          }}
         >
           {props.array.map((e, i) => {
             return (
@@ -49,11 +52,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginBottom: 20,
   },
   checkbox: {
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   label: {
     margin: 8,

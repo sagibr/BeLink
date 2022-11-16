@@ -10,6 +10,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2",
     "uuid": "^9.0.0"
+    "morgan": "^1.10.0"
   },
   "type": "module",
   "name": "server",
