@@ -56,6 +56,7 @@ export const handleRegister = async (req, res) => {
       tech: tech,
       company: company,
       match: [],
+      chatList: [],
     })
     res.status(201).json({ sucess: `New user ${email} created` })
   } catch (err) {
@@ -102,6 +103,7 @@ export const handleLogin = async (req, res) => {
       tech: foundUser.tech,
       company: foundUser.company,
       match: foundUser.match,
+      chatList: foundUser.chatList,
     }
     res.json({ user, accessToken })
   } else {
@@ -166,6 +168,7 @@ export const handleRefreshToken = async (req, res) => {
       tech: foundUser.tech,
       company: foundUser.company,
       match: foundUser.match,
+      chatList: foundUser.chatList,
     }
     res.json({ user, accessToken })
   })

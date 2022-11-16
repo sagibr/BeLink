@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import credentials from './middleware/credentials.js'
 import verifyJWT from './middleware/verifyJWT.js'
 import authRouter from './routes/authRouter.js'
+import matchRouter from './routes/matchRouter.js'
 import userRouter from './routes/userRouter.js'
 
 const app = express()
@@ -31,5 +32,7 @@ app.use('/auth', authRouter)
 app.use(verifyJWT)
 
 app.use(`/user`, userRouter)
+
+app.use('/match', matchRouter)
 
 export default app
