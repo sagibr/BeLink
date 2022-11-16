@@ -17,6 +17,9 @@ const QuizTemplate = (props) => {
   const user = useSelector((state) => state.user.value)
 
   const handlePress = () => {
+    console.log('quiz template data: ' + data)
+    console.log('quiz template property: ' + props.Property)
+
     // const updatedUser = { property: props.property, value: data }
     dispatch(updateUser({ property: props.Property, value: data }))
     console.log(user)

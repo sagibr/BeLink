@@ -18,6 +18,7 @@ const initialState = {
         location: '',
         time: 0,
         profession: '',
+        degree: false,
       },
     ],
     experience: [

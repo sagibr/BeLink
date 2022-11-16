@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import CheckBox from 'expo-checkbox'
+import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
-import UIButton from '../../../../components/basic/UIButton'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 import AddExperience from './AddExperience'
 
@@ -11,7 +11,13 @@ const AddEducation = () => {
     location: '',
     time: 0,
     profession: '',
+    degree: false,
   })
+  const [CheckBoxValue, setCheckBoxValue] = useState(false)
+
+  useEffect(() => {
+    setData({ ...data, degree: CheckBoxValue })
+  }, [CheckBoxValue])
 
   const selectArray = [
     'Devloper',
@@ -33,7 +39,7 @@ const AddEducation = () => {
         elements={
           <>
             <Input
-              setData={(e) => setData({ ...data, location: e })}
+              setData={(value) => setData({ ...data, location: value })}
               height="20"
               placeholder="location"
               border="2"
@@ -41,12 +47,29 @@ const AddEducation = () => {
             />
             <Select
               array={selectArray}
-              setData={(e) => setData({ ...data, profession: e })}
+              setData={(value) => setData({ ...data, profession: value })}
               height="20"
               placeholder="profession"
               border="2"
               rounded_border="lg"
             />
+            <Input
+              setData={(value) => setData({ ...data, time: value })}
+              height="20"
+              placeholder="time in months"
+              border="2"
+              rounded_border="lg"
+              type="number-pad"
+            />
+            <View>
+              <CheckBox
+                value={CheckBoxValue}
+                onValueChange={(newValue) => {
+                  setCheckBoxValue(newValue)
+                }}
+              />
+              <Text>Is it a degree?</Text>
+            </View>
           </>
         }
       />
