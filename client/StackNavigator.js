@@ -12,27 +12,33 @@ import AddName from './screens/authorization/register/quiz/AddName'
 import AddPassword from './screens/authorization/register/quiz/AddPassword'
 import AddProfession from './screens/authorization/register/quiz/AddProfession'
 import Register from './screens/authorization/register/Register'
-import ChatList from './screens/chat/ChatList'
+import Messaging from './screens/chat/Messaging'
+import ChatScreen from './screens/ChatScreen'
+// import ChatList from './screens/chat/ChatList'
 import Home from './screens/Home'
+import MessageScreen from './screens/MessageScreen'
 import Profile from './screens/Profile'
 import Test from './screens/Test'
 
 const Stack = createNativeStackNavigator()
 
 function StackNavigator() {
-  const user = false
-  const test = false
+  const user = true
+  const test = true
   return (
     <Stack.Navigator>
       {test ? (
         <>
           <Stack.Screen name="Test" component={Test} />
+          {/* <Stack.Screen name="Messaging" component={Messaging} /> */}
+          <Stack.Screen name="Message" component={MessageScreen} />
+          <Stack.Screen name="Chat" component={ChatScreen} />
         </>
       ) : user ? (
         <>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
-          <Stack.Screen name="Chats" component={ChatList} />
+          {/* <Stack.Screen name="Chats" component={ChatList} /> */}
         </>
       ) : (
         <>
