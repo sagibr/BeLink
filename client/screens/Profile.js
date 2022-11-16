@@ -3,7 +3,8 @@ import { Image, Text, View } from 'react-native'
 import Skills from '../components/basic/Skills'
 import tw from '../utils/config/tailwindConf'
 import { Linking } from 'react-native'
-import { Entypo, AntDesign } from '@expo/vector-icons'
+import { Entypo, AntDesign, FontAwesome } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 const Profile = () => {
   const user = {
     name: 'sagi',
@@ -39,26 +40,28 @@ const Profile = () => {
             </Text>
           </View>
           <View style={tw`flex-row justify-center m-top-9`}>
+            <MaterialCommunityIcons name="professional-hexagon" size={24} color="black" />
             <Text>{user.profession}</Text>
             {/* <Text>{user.education[0]?.location}</Text> */}
           </View>
         </View>
         {/* line */}
-        <View style={tw`w-full h-1/800 bg-black`} />
+        <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
 
         {/* langauge */}
-        <Text style={tw`text-center font-bold m-top-3`}>technology:</Text>
-        <View style={tw`flex flex-2 flex-nowrap rounded-full`}>
+        <Text style={tw`text-center font-bold`}>technology:</Text>
+        <View style={tw`flex flex-2 flex-row flex-wrap flex-start`}>
           {Object.keys(user.tech).map((tech, index) => {
             return <Skills key={index} tech={tech} />
           })}
         </View>
 
         <Text style={tw`text-center font-bold m-bottom-1`}>
-          education: {user.education[0]?.location}
+          <FontAwesome name="book" size={24} color="black" /> education:{' '}
+          {user.education[0]?.location}
         </Text>
         {/* line */}
-        <View style={tw`w-full h-1/800 bg-black`} />
+        <View style={tw`my-2 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
 
         {/* about */}
         <View style={tw` flex-1.5 `}>
@@ -67,7 +70,7 @@ const Profile = () => {
         </View>
 
         {/* line */}
-        <View style={tw`w-full h-1/800 bg-black`} />
+        <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
 
         {/* links */}
         <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
