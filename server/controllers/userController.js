@@ -30,6 +30,7 @@ export const handleUpdateUser = async (req, res) => {
       tech: foundUser.tech,
       company: foundUser.company,
       match: foundUser.match,
+      chatList: foundUser.chatList,
     }
     res.send(user)
   } catch (err) {

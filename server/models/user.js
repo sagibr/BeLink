@@ -23,6 +23,7 @@ const UserSchema = mongoose.Schema([
         location: { type: String, required: true },
         time: { type: Number, required: true },
         profession: { type: String, required: true },
+        degree: { type: Boolean, required: true },
       },
     ],
     experience: [
@@ -39,6 +40,21 @@ const UserSchema = mongoose.Schema([
       lookingForDegree: { type: Boolean },
     },
     match: [{ type: String }],
+    seenUsers: [{ type: String }],
+    chatList: [
+      {
+        roomId: { type: String, required: true }, //user1 ID + user2 ID
+        userName: { type: String, required: true },
+        userImage: { type: String },
+        messages: [
+          {
+            text: { type: String, required: true },
+            userType: { type: String, required: true },
+            time: { type: String, required: true },
+          },
+        ],
+      },
+    ],
   },
 ])
 
