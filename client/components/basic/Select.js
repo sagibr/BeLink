@@ -4,7 +4,7 @@ import { Picker } from '@react-native-picker/picker'
 import { CheckBox } from '@react-native-community/checkbox'
 import tw from '../../utils/config/tailwindConf'
 
-const Select = (propsprops) => {
+const Select = (props) => {
   const [selectedValue, setSelectedValue] = useState(props.array[0])
   const [isSelected, setSelection] = useState(false)
   return (
