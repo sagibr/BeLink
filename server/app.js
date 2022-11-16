@@ -1,6 +1,7 @@
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import express from 'express'
+import morgan from 'morgan'
 import credentials from './middleware/credentials.js'
 import verifyJWT from './middleware/verifyJWT.js'
 import authRouter from './routes/authRouter.js'
@@ -13,7 +14,8 @@ const app = express()
 app.use(credentials)
 
 // Cross Origin Resource Sharing
-app.use(cors())
+app.use(cors({credentials: true, origin: `${process.env.SITE_URL}`}))
+app.use(morgan("dev"))
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }))
