@@ -27,27 +27,29 @@ const QuizTemplate = (props) => {
 
   return (
     <>
-      <View
-        style={tw`flex flex-col h-200 items-center	justify-between align-items-center`}
-      >
-        <View style={tw`w-full h-1/6 `}>
-          <Text>{props.Title}</Text>
+      <View style={tw`w-full h-full bg-white `}>
+        <View style={tw`flex-1 bg-primary p-5 flex justify-end`}>
+          <Text
+            style={tw`text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl text-white`}
+          >
+            {props.Title}
+          </Text>
         </View>
 
-        <View style={tw`w-full h-4/6`}>{props.elements}</View>
+        <View style={tw`flex-3`}>{props.elements}</View>
 
-        <View style={tw`w-full h-1/6`}>
+        <View style={tw`flex-3 flex justify-end p-5`}>
           <UIButton
             onPress={() => {
               handlePress()
               navigation.navigate(props.navigateTo)
             }}
             padding="5"
-            color="secondary"
+            color="primary"
             text="send"
-            textColor="red-700"
+            textColor="white"
             textSize="2xl"
-            rounded="3xl"
+            rounded="full"
           ></UIButton>
         </View>
       </View>

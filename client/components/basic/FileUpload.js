@@ -1,14 +1,27 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Pressable, View } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import tw from '../../utils/config/tailwindConf'
-
+import axios from 'axios'
 import { useState } from 'react'
 import * as ImagePicker from 'expo-image-picker'
 
 const FileUpload = (props) => {
   const [image, setImage] = useState(null)
+
+  const uploadImage = () => {
+    const formData = new FormData()
+    formData.append('file', image)
+    formData.append('upload_preset', process.env.CLOUDNERY_SEC)
+    console.log(formData)
+
+    axios
+      .post('https://api.cloudinary.com/v1_1/dxexnhjmi/image/upload', formData)
+      .then((res) => {
+        setProduct({ ...product, img: res.data.secure_url })
+      })
+  }
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -23,34 +36,30 @@ const FileUpload = (props) => {
 
     if (!result.canceled) {
       setImage(result.assets[0].uri)
+      uploadImage()
     }
   }
 
   return (
-    <View style={tw`relative p-${props.padding} m-${props.margin}`}>
-      <MaterialCommunityIcons
-        name="square-rounded-outline"
-        size={props.size * 4}
-        color={props.color}
-        style={tw`relative`}
-        onPress={pickImage}
-      >
-        <AntDesign
-          name="camerao"
-          size={props.size}
-          color={props.color}
-          style={tw`item-center absolute bottom-35% left-38%`}
-          onPress={props.onPress}
-        />
-        <AntDesign
-          name="pluscircle"
-          size={props.size}
-          color={props.color}
-          style={tw`item-center absolute bottom-13% right-18%`}
-          onPress={props.onPress}
-        />
-      </MaterialCommunityIcons>
-    </View>
+    <Pressable
+      style={tw` h-1/3 w-1/3 border-2 rounded-xl border-primary flex items-center`}
+      onPress={pickImage}
+    >
+      <AntDesign
+        name="camerao"
+        size={50}
+        color={'#3b82f6'}
+        style={tw`item-center absolute bottom-30% right-30%`}
+        onPress={props.onPress}
+      />
+      <AntDesign
+        name="pluscircle"
+        size={20}
+        color={'#3b82f6'}
+        style={tw`item-center absolute bottom-24% right-25%`}
+        onPress={props.onPress}
+      />
+    </Pressable>
   )
 }
 
