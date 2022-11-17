@@ -62,12 +62,10 @@ const AddExtraKnowledge = () => {
         elements={
           <>
 
-          <View style={tw`w-full h-12 bg-gray-300 rounded-full `}>
-            {selectArray.map((item,inde)=>{
+          <View style={tw`w-full h-1/2 bg-gray-300 rounded-xl flex-wrap`}>
+            {selectArray.map((item,index)=>{
               return(
-                <View>
-                  
-                </View>
+                <Skills tech={item}/>
               )
             })}
 
