@@ -14,11 +14,13 @@ export const setDataUser = async (value) => {
 
   export const getDataUser = async () => {
     try {
-      const jsonValue = await AsyncStorage.getItem('user')
-      console.log(jsonValue);
-      return jsonValue != null ? JSON.parse(jsonValue) : null
-    } catch(e) {
-      // read error
-      console.log(e);
+      const value = await AsyncStorage.getItem('user');
+      if (value !== null) {
+        // We have data!!
+        return value
+      }
+    } catch (error) {
+      // Error retrieving data
+      console.log("Error get data");
     }
   };
