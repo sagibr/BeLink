@@ -16,6 +16,7 @@ export const setDataUser = async (data) => {
   export const getDataUser = async () => {
     try {
       const value = await AsyncStorage.getItem('user');
+      console.log("value", value);
       if (value !== null) {
         // We have data!!
         return value

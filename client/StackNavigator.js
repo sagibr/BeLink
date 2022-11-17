@@ -17,20 +17,22 @@ import Home from './screens/Home'
 import MessageScreen from './screens/MessageScreen'
 import Profile from './screens/Profile'
 import Test from './screens/Test'
-import { getDataUser } from './utils/AsyncStorage'
+import {  useSelector } from 'react-redux'
 
 const Stack = createNativeStackNavigator()
 
 function StackNavigator() {
-  const user = getDataUser()
+  const user = useSelector((state) => state.currentUser.currentUser) 
+  console.log(user);
   const test = false
+
   return (
     <Stack.Navigator>
       {test ? (
         <>
           <Stack.Screen name="Test" component={Test} />
         </>
-      ) : user ? (
+      ) : user!=null ? (
         <>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
@@ -39,7 +41,6 @@ function StackNavigator() {
         </>
       ) : (
         <>
-          <Stack.Screen name="Test" component={Test} />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="AddEmail" component={AddEmail} />
           <Stack.Screen name="AddPassword" component={AddPassword} />

@@ -1,8 +1,7 @@
 import { View, Text } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ChatRow from '../components/ChatClone/ChatRow'
-import { useNavigation } from '@react-navigation/native'
-
+import {  useSelector } from 'react-redux'
 const ChatScreen = () => {
   //👇🏻 Dummy list of rooms
   const Dummyrooms = [
@@ -44,6 +43,14 @@ const ChatScreen = () => {
     },
   ]
   const [rooms, setRooms] = useState(Dummyrooms)
+  
+  const user = useSelector((state) => state.currentUser.currentUser?.user) 
+  useEffect (() => {
+    setRooms(user.chatList)
+  
+    
+  }, [])
+  
   return (
     <View>
       <View>
@@ -59,8 +66,7 @@ const ChatScreen = () => {
           })
         ) : (
           <View>
-            <Text>No rooms created!</Text>
-            <Text>Click the icon above to create a Chat room</Text>
+            <Text>No Match, continue swipe!</Text>
           </View>
         )}
       </View>
