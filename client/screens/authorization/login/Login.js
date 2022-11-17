@@ -19,6 +19,7 @@ const Login = () => {
     console.log(password)
     login(dispatch, { email: email, password: password })
   }
+  const [user1, setUser]= useState("")
   return (
     <View style={tw`w-full h-full bg-white `}>
       <View style={tw`flex-1 bg-primary p-5 flex justify-end`}>
