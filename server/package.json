@@ -11,7 +11,7 @@
     "mongoose": "^6.7.2",
     "uuid": "^9.0.0",
     "morgan": "^1.10.0",
-    "socket.io": "^4.5.3",
+    "socket.io": "^4.5.3"
   },
   "type": "module",
   "name": "server",

@@ -8,7 +8,7 @@ const AddPassword = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add password'}
+        Title={'Create a password'}
         Property="password"
         data={data}
         navigateTo={'AddLabeling'}

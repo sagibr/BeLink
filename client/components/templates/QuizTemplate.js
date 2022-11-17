@@ -36,9 +36,9 @@ const QuizTemplate = (props) => {
           </Text>
         </View>
 
-        <View style={tw`flex-3`}>{props.elements}</View>
+        <View style={tw`flex-4 flex justify-center`}>{props.elements}</View>
 
-        <View style={tw`flex-3 flex justify-end p-5`}>
+        <View style={tw`flex-1 flex justify-end p-5`}>
           <UIButton
             onPress={() => {
               handlePress()

@@ -4,6 +4,7 @@ import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import UIButton from '../../../../components/basic/UIButton'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 
 const AddExtraKnowledge = () => {
   const [data, setData] = useState({})
@@ -30,13 +31,27 @@ const AddExtraKnowledge = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add expience'}
+        Title={'What is your technological knowledge?'}
         Property="tech"
         data={data}
         navigateTo={AddExtraKnowledge}
         elements={
           <>
-            {inputData.map((item, index) => {
+
+          <View style={tw`w-full h-12 bg-gray-300 rounded-full `}>
+            {selectArray.map((item,inde)=>{
+              return(
+                <View>
+                  
+                </View>
+              )
+            })}
+
+
+          </View>
+
+          
+            {/* {inputData.map((item, index) => {
               return (
                 <View key={index}>
                   <Select
@@ -75,7 +90,7 @@ const AddExtraKnowledge = () => {
               textColor="red-700"
               textSize="2xl"
               rounded="3xl"
-            />
+            /> */}
           </>
         }
       />
