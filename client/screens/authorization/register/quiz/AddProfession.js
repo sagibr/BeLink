@@ -2,20 +2,45 @@ import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
+import Select1 from '../../../../components/basic/Select1'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 
 const AddProfession = () => {
   const [data, setData] = useState({})
 
   const selectArray = [
-    'Devloper',
-    'Devops',
-    'QA',
-    'IT',
-    'Data Analist',
-    'Cyber Security',
-    'Hr',
-    'UI/UX',
+    {
+      item: 'Devloper',
+      id: 'Devloper',
+    },
+    {
+      item: 'Devops',
+      id: 'Devops',
+    },
+    {
+      item: 'QA',
+      id: 'QA',
+    },
+    {
+      item: 'IT',
+      id: 'IT',
+    },
+    {
+      item: 'Data Analist',
+      id: 'Data Analist',
+    },
+    {
+      item: 'Cyber Security',
+      id: 'Cyber Security',
+    },
+    {
+      item: 'Hr',
+      id: 'MCI',
+    },
+    {
+      item: 'UI/UX',
+      id: 'UI/UX',
+    },
   ]
   return (
     <View>
@@ -25,7 +50,7 @@ const AddProfession = () => {
         data={data}
         navigateTo={'AddImage'}
         elements={
-          <Select
+          <Select1
             array={selectArray}
             setData={(e) => setData(e)}
             height="20"

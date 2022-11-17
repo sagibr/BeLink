@@ -8,6 +8,7 @@ const AddName = () => {
   const [data, setData] = useState({})
   return (
     <View>
+      <Text style={{ margin: 0, alignItems: 'center' }}>HI</Text>
       <QuizTemplate
         Title={'Add Name'}
         Property="name"
