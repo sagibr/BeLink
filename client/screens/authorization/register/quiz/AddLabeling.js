@@ -12,7 +12,7 @@ const AddLabeling = () => {
         <Text
           style={tw`text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl text-white`}
         >
-          Chose label:
+          I am a...
         </Text>
       </View>
       <View style={tw`p-5 flex-row flex-6`}>
@@ -22,7 +22,7 @@ const AddLabeling = () => {
           <UIButton
             padding="5"
             color="primary"
-            text="work"
+            text="worker"
             textColor="white"
             textSize="2xl"
             width="90%"

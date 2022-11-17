@@ -10,7 +10,7 @@ const AddEmail = () => {
     //   onPress={() => navigation.navigate('AddName')}
     <View>
       <QuizTemplate
-        Title={'Add email'}
+        Title={'Add your email:'}
         Property="email"
         data={data}
         navigateTo={'AddPassword'}

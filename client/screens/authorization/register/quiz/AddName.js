@@ -9,7 +9,7 @@ const AddName = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add Name'}
+        Title={'What is your full name?'}
         Property="name"
         data={data}
         navigateTo={'AddEmail'}

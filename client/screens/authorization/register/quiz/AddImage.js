@@ -10,21 +10,12 @@ const AddImage = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add Image'}
+        Title={'Add your profile image:'}
         Property="image"
         data={data}
         navigateTo={'AddAbout'}
         elements={
-          <>
-            <Input
-              setData={(e) => setData(e)}
-              height="20"
-              placeholder="image"
-              border="2"
-              rounded_border="lg"
-            />
             <FileUpload />
-          </>
         }
       />
     </View>

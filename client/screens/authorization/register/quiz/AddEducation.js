@@ -4,6 +4,7 @@ import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 import AddExperience from './AddExperience'
 
 const AddEducation = () => {
@@ -32,7 +33,7 @@ const AddEducation = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add education'}
+        Title={'Tell us about your education:'}
         Property="education"
         data={data}
         navigateTo={AddExperience}
@@ -41,11 +42,11 @@ const AddEducation = () => {
             <Input
               setData={(value) => setData({ ...data, location: value })}
               height="20"
-              placeholder="location"
+              placeholder="where did you study?"
               border="2"
               rounded_border="lg"
             />
-            <Select
+            {/* <Select
               array={selectArray}
               setData={(value) => setData({ ...data, profession: value })}
               height="20"
@@ -60,15 +61,15 @@ const AddEducation = () => {
               border="2"
               rounded_border="lg"
               type="number-pad"
-            />
-            <View>
+            /> */}
+            <View style={tw`flex-row justify-around`}>
               <CheckBox
                 value={CheckBoxValue}
                 onValueChange={(newValue) => {
                   setCheckBoxValue(newValue)
                 }}
               />
-              <Text>Is it a degree?</Text>
+              <Text>Do you have a degree from a college or university?</Text>
             </View>
           </>
         }
