@@ -4,6 +4,8 @@ import tw from '../../utils/config/tailwindConf'
 
 const Input = (props) => {
   return (
+
+
     <View style={tw`m-5`}>
       <Text style={tw`mb-2`}>{props.placeholder}:</Text>
       <TextInput
@@ -17,6 +19,7 @@ const Input = (props) => {
         keyboardType={props.type}
       ></TextInput>
     </View>
+
   )
 }
 

@@ -2,24 +2,47 @@ import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
-import Skills from '../../../../components/basic/Skills'
+import Select1 from '../../../../components/basic/Select1'
 import UIButton from '../../../../components/basic/UIButton'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 import tw from '../../../../utils/config/tailwindConf'
 
 const AddExtraKnowledge = () => {
   const [data, setData] = useState({})
-  const [selectValue, setSelectValue] = useState('')
   const [inputData, setInputData] = useState([])
   const selectArray = [
-    'Devloper',
-    'Devops',
-    'QA',
-    'IT',
-    'Data Analist',
-    'Cyber Security',
-    'Hr',
-    'UI/UX',
+    {
+      item: 'Devloper',
+      id: 'Devloper',
+    },
+    {
+      item: 'Devops',
+      id: 'Devops',
+    },
+    {
+      item: 'QA',
+      id: 'QA',
+    },
+    {
+      item: 'IT',
+      id: 'IT',
+    },
+    {
+      item: 'Data Analist',
+      id: 'Data Analist',
+    },
+    {
+      item: 'Cyber Security',
+      id: 'Cyber Security',
+    },
+    {
+      item: 'Hr',
+      id: 'MCI',
+    },
+    {
+      item: 'UI/UX',
+      id: 'UI/UX',
+    },
   ]
 
   useEffect(() => {
@@ -53,7 +76,7 @@ const AddExtraKnowledge = () => {
             {/* {inputData.map((item, index) => {
               return (
                 <View key={index}>
-                  <Select
+                  <Select1
                     array={selectArray}
                     setData={(e) => {
                       const newInputData = inputData

@@ -150,7 +150,7 @@ router.post(`/addRandomUser`, async (req, res) => {
           'postman',
         ]
   const tech = {}
-  for (let i = 0; i < randomNum(1, 8); i++) {
+  for (let i = 0; i < randomNum(1, 4); i++) {
     tech[techs[randomNum(0, techs.length - 1)]] = randomNum(1, 48)
   }
   const newUser = {
