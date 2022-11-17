@@ -5,7 +5,15 @@ import tw from '../../utils/config/tailwindConf'
 const Input = (props) => {
   return (
     <TextInput
-      style={tw`rounded-${props.rounded_border} h-${props.height}  border-${props.border}`}
+      style={[
+        {
+          margin: 12,
+          borderColor: '#FFFFFF',
+          borderBottomWidth: 1,
+          borderBottomColor: '#000000',
+        },
+        tw`rounded-${props.rounded_border} h-${props.height}  border-${props.border}`,
+      ]}
       placeholder={props.placeholder}
       onChangeText={(newText) => {
         props.setData(newText)

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Text, View } from 'react-native'
-import Input from '../../../../components/basic/Input'
-import Select from '../../../../components/basic/Select'
+import PasswordInput from '../../../../components/basic/PasswordInput'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 
 const AddPassword = () => {
@@ -14,7 +13,7 @@ const AddPassword = () => {
         data={data}
         navigateTo={'AddLabeling'}
         elements={
-          <Input
+          <PasswordInput
             setData={(e) => setData(e)}
             height="20"
             placeholder="password"
