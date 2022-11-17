@@ -15,12 +15,14 @@ import tw from '../utils/config/tailwindConf'
 import SenderMessage from '../components/ChatClone/SenderMessage'
 import RecieverMessage from '../components/ChatClone/RecieverMessage'
 import socket from '../utils/socket/socket'
+import {  useSelector } from 'react-redux'
 
 const MessageScreen = ({ route }) => {
   const { name, id, messages } = route.params
   const [input, setInput] = useState('')
   const [chatMessages, setChatMessages] = useState(messages)
-  const user = 'gilad'
+
+  const user = useSelector((state) => state.currentUser.currentUser?.user?.name) 
 
   useEffect(() => {
     socket.emit('join_room', id)
