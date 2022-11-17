@@ -21,7 +21,7 @@ import Test from './screens/Test'
 const Stack = createNativeStackNavigator()
 
 function StackNavigator() {
-  const user = true
+  const user = false
   const test = false
   return (
     <Stack.Navigator>
