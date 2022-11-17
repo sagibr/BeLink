@@ -45,7 +45,7 @@ const AddProfession = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add Name'}
+        Title={"I'm looking for:"}
         Property="profession"
         data={data}
         navigateTo={'AddImage'}

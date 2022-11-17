@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { Text, View } from 'react-native'
-import Select1 from '../components/basic/Select1'
+
+import FileUpload from '../components/basic/FileUpload'
 import tw from '../utils/config/tailwindConf'
-import AddExperience from './authorization/register/quiz/AddExperience'
-import Welcome from './Welcome.js'
+import Welcome from './Welcome'
 const Test = () => {
   return (
-    <View>
-      <Welcome />
+    <View style={tw``}>
+      <Welcome></Welcome>
+      {/* <Text>heloo</Text> */}
     </View>
   )
 }

@@ -9,13 +9,11 @@ const Select = (props) => {
   const [isSelected, setSelection] = useState(false)
   return (
     <View style={styles.container}>
-      <View
-        style={tw`rounded-lg border-0 border-background bg-background w-36 h-14 flex items-center justify-center`}
-      >
+      <View style={[styles.container]}>
         <Picker
           selectedValue={selectedValue}
           dropdownIconColor="white"
-          style={tw`bg-background w-34 h-10 rounded-lg text-white`}
+          style={{ width: 300, height: 50 }}
           onValueChange={(newValue) => {
             setSelectedValue(newValue)
             props.setData(newValue)
@@ -33,14 +31,6 @@ const Select = (props) => {
           })}
         </Picker>
       </View>
-      {/* <View>
-        <CheckBox
-          value={isSelected}
-          onValueChange={setSelection}
-          style={styles.checkbox}
-        />
-        <Text style={styles.label}>Do you like React Native?</Text>
-      </View> */}
     </View>
   )
 }

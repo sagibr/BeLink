@@ -13,7 +13,7 @@ const AddAbout = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add expience'}
+        Title={'Tell us about yourself'}
         Property="about"
         data={data}
         navigateTo={AddEducation}
@@ -21,18 +21,18 @@ const AddAbout = () => {
           <>
             <Input
               setData={(e) => setData({ ...data, text: e })}
-              height="20"
-              placeholder="text"
+              height="15"
+              placeholder="My self-Summary"
               border="2"
               rounded_border="lg"
             />
-            <Input
+            {/* <Input
               setData={(e) => setData({ ...data, links: e })}
               height="20"
               placeholder="links"
               border="2"
               rounded_border="lg"
-            />
+            /> */}
           </>
         }
       />

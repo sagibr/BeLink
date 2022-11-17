@@ -51,7 +51,7 @@ const AddExperience = () => {
   return (
     <View>
       <QuizTemplate
-        Title={'Add expience'}
+        Title={'Tell us about your work experience:'}
         Property="experience"
         data={data}
         navigateTo={AddExtraKnowledge}
@@ -60,11 +60,13 @@ const AddExperience = () => {
             <Input
               setData={(e) => setData({ ...data, location: e })}
               height="20"
-              placeholder="location"
+              placeholder="what is your last job?"
               border="2"
               rounded_border="lg"
             />
+
             <Select1
+
               array={selectArray}
               setData={(e) => setData({ ...data, role: e })}
               height="20"
@@ -79,7 +81,7 @@ const AddExperience = () => {
               border="2"
               rounded_border="lg"
               type="number-pad"
-            />
+            /> */}
           </>
         }
       />

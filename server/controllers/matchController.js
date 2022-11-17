@@ -60,7 +60,20 @@ export const generateNewMatches = async (req, res) => {
       if (finalGrade < 0) {
         finalGrade = 0
       }
-      finalGrades.push({ userId: potentialUser._id, grade: finalGrade })
+      finalGrades.push({
+        user: {
+          name: potentialUser.name,
+          profession: potentialUser.profession,
+          image: potentialUser.image,
+          about: potentialUser.about,
+          links: potentialUser.links,
+          education: potentialUser.education,
+          experience: potentialUser.experience,
+          tech: potentialUser.tech,
+          id: potentialUser._id,
+        },
+        grade: finalGrade,
+      })
     }
     const values = finalGrades
       .map(({ grade }) => grade)
@@ -68,10 +81,15 @@ export const generateNewMatches = async (req, res) => {
       .slice(0, 10)
     const top10 = finalGrades.filter(({ grade }) => values.includes(grade))
     for (let i = 0; i < top10.length; i++) {
-      user.seenUsers.push(top10[i].userId)
+      user.seenUsers.push(top10[i].user.id)
     }
     await user.save()
     res.send(top10)
+    // const top10Users = []
+    // for (const user of top10) {
+    //   const fullUser = await User.findById(user.userId)
+    //   top10Users.push(fullUser)
+    // }
   } catch (err) {
     res.status(500).json({ message: err.message })
   }

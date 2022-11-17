@@ -10,7 +10,7 @@ const AddName = () => {
     <View>
       <Text style={{ margin: 0, alignItems: 'center' }}>HI</Text>
       <QuizTemplate
-        Title={'Add Name'}
+        Title={'What is your full name?'}
         Property="name"
         data={data}
         navigateTo={'AddEmail'}
