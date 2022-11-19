@@ -16,7 +16,7 @@ import SenderMessage from '../components/ChatClone/SenderMessage'
 import RecieverMessage from '../components/ChatClone/RecieverMessage'
 import socket from '../utils/socket/socket'
 import {  useSelector } from 'react-redux'
-
+// import { publicRequest } from "../requestMethods"
 const MessageScreen = ({ route }) => {
   const { name, id, messages } = route.params
   const [input, setInput] = useState('')
@@ -50,8 +50,10 @@ const MessageScreen = ({ route }) => {
         : `${new Date().getMinutes()}`
     const newMessage = { text: input, user: user, timestamp: { hour, mins } }
     setChatMessages((chatMessages) => [...chatMessages, newMessage])
+    
     if (user) {
       socket.emit('send_message', { text: input, user: user, timestamp: { hour, mins }, room_id: id })
+      // publicRequest.post(`/message/${id}`, )
     }
     console.log(newMessage)
   }

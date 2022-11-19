@@ -9,6 +9,7 @@ import tw from '../../../utils/config/tailwindConf'
 import UIButton from '../../../components/basic/UIButton'
 import Input from '../../../components/basic/Input'
 import PasswordInput from '../../../components/basic/PasswordInput'
+import { getUser } from '../../../utils/AsyncStorage'
 
 const Login = () => {
   const [email, setEmail] = useState(null)
@@ -18,6 +19,7 @@ const Login = () => {
     console.log(email)
     console.log(password)
     login(dispatch, { email: email, password: password })
+    
   }
   return (
     <View style={tw`w-full h-full bg-white `}>

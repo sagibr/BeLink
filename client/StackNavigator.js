@@ -18,6 +18,7 @@ import MessageScreen from './screens/MessageScreen'
 import Profile from './screens/Profile'
 import Test from './screens/Test'
 import {  useSelector } from 'react-redux'
+import { getUser } from './utils/AsyncStorage'
 
 const Stack = createNativeStackNavigator()
 
@@ -25,6 +26,7 @@ function StackNavigator() {
   const user = useSelector((state) => state.currentUser.currentUser) 
   console.log(user);
   const test = false
+  // console.log(getUser());
 
   return (
     <Stack.Navigator>

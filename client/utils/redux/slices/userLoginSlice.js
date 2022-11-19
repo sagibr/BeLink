@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setDataUser } from "../../AsyncStorage";
+import { getUser, setDataUser } from "../../AsyncStorage";
 
 const userLoginSlice = createSlice({
   name: "user",
@@ -15,8 +15,9 @@ const userLoginSlice = createSlice({
     loginSuccess: (state, action) => {
       state.isFetching = false;
       state.currentUser = action.payload;
-      setDataUser(action.payload)
+      storeUser(action.payload)
       console.log("loginSuccess", state.currentUser);
+      // console.log(getUser());
     },
     loginFailure: (state) => {
       state.isFetching = false;
