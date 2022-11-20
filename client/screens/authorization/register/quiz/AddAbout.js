@@ -22,7 +22,7 @@ const AddAbout = () => {
             <Input
               setData={(e) => setData({ ...data, text: e })}
               height="15"
-              placeholder="My self-Summary"
+              placeholder="My self-Summary:"
               border="2"
               rounded_border="lg"
             />

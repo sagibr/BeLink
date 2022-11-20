@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
+import Select1 from '../../../../components/basic/Select1'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 import tw from '../../../../utils/config/tailwindConf'
 import AddExperience from './AddExperience'
@@ -21,14 +22,38 @@ const AddEducation = () => {
   }, [CheckBoxValue])
 
   const selectArray = [
-    'Devloper',
-    'Devops',
-    'QA',
-    'IT',
-    'Data Analist',
-    'Cyber Security',
-    'Hr',
-    'UI/UX',
+    {
+      item: 'Devloper',
+      id: 'Devloper',
+    },
+    {
+      item: 'Devops',
+      id: 'Devops',
+    },
+    {
+      item: 'QA',
+      id: 'QA',
+    },
+    {
+      item: 'IT',
+      id: 'IT',
+    },
+    {
+      item: 'Data Analist',
+      id: 'Data Analist',
+    },
+    {
+      item: 'Cyber Security',
+      id: 'Cyber Security',
+    },
+    {
+      item: 'Hr',
+      id: 'MCI',
+    },
+    {
+      item: 'UI/UX',
+      id: 'UI/UX',
+    },
   ]
   return (
     <View>
@@ -39,6 +64,15 @@ const AddEducation = () => {
         navigateTo={AddExperience}
         elements={
           <>
+            {/* <Select1
+              SelectSemiTitle={"education's"}
+              array={selectArray}
+              setData={(value) => setData({ ...data, profession: value })}
+              height="20"
+              placeholder="profession"
+              border="2"
+              rounded_border="lg"
+            /> */}
             <Input
               setData={(value) => setData({ ...data, location: value })}
               height="20"
@@ -46,15 +80,8 @@ const AddEducation = () => {
               border="2"
               rounded_border="lg"
             />
-            {/* <Select
-              array={selectArray}
-              setData={(value) => setData({ ...data, profession: value })}
-              height="20"
-              placeholder="profession"
-              border="2"
-              rounded_border="lg"
-            />
-            <Input
+
+            {/* <Input
               setData={(value) => setData({ ...data, time: value })}
               height="20"
               placeholder="time in months"
