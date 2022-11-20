@@ -64,24 +64,23 @@ const AddExperience = () => {
               border="2"
               rounded_border="lg"
             />
-
+            {/* 
             <Select1
-
               array={selectArray}
               setData={(e) => setData({ ...data, role: e })}
               height="20"
               placeholder="role"
               border="2"
               rounded_border="lg"
-            />
+            /> */}
             <Input
               setData={(value) => setData({ ...data, time: value })}
               height="20"
-              placeholder="time in months"
+              placeholder="how long did you work?"
               border="2"
               rounded_border="lg"
               type="number-pad"
-            /> */}
+            />
           </>
         }
       />
