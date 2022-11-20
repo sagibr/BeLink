@@ -30,7 +30,7 @@ const QuizTemplate = (props) => {
       <View style={tw`w-full h-full bg-white `}>
         <View style={tw`flex-1 bg-primary p-5 flex justify-end`}>
           <Text
-            style={tw`text-3xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl text-white`}
+            style={tw`text-3xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white`}
           >
             {props.Title}
           </Text>

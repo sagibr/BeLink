@@ -3,6 +3,7 @@ import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 
 const AddEmail = () => {
   const [data, setData] = useState({})
@@ -18,7 +19,7 @@ const AddEmail = () => {
           <Input
             setData={(e) => setData(e)}
             height="20"
-            placeholder="email"
+            placeholder="email:"
             border="2"
             rounded_border="lg"
           />
