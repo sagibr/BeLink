@@ -9,6 +9,7 @@ import {
 const router = express.Router()
 
 router.post(`/login`, (req, res) => {
+  console.log("login start");
   handleLogin(req, res)
 })
 router.post(`/register`, (req, res) => {
