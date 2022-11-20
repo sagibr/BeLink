@@ -5,20 +5,22 @@ import tw from '../../utils/config/tailwindConf'
 const PasswordInput = (props) => {
   return (
     <View style={tw`m-5`}>
-      <Text style={tw`mb-2`}>{props.placeholder}:</Text>
+      <Text style={tw`text-3xl font-extrabold tracking-tight margin:0px text-black`}>
+        {props.placeholder}:
+      </Text>
       <TextInput
-        style={
-          [tw`rounded-${props.rounded_border} h-${props.height}  border-${props.border} border-gray-500 `]
-        }
+        style={[
+          tw`rounded-${props.rounded_border} h-${props.height}  border-${props.border} border-gray-500 `,
+        ]}
         onChangeText={(newText) => {
           props.setData(newText)
           console.log('Input data: ' + newText)
         }}
         keyboardType={props.type}
-      secureTextEntry={true} 
+        secureTextEntry={true}
       ></TextInput>
     </View>
-      )
-    }
+  )
+}
 
 export default PasswordInput

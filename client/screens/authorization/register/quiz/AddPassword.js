@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import PasswordInput from '../../../../components/basic/PasswordInput'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 
 const AddPassword = () => {
   const [data, setData] = useState({})

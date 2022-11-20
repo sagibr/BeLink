@@ -3,12 +3,11 @@ import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
-
+import tw from '../../../../utils/config/tailwindConf'
 const AddName = () => {
   const [data, setData] = useState({})
   return (
     <View>
-      <Text style={{ margin: 0, alignItems: 'center' }}>HI</Text>
       <QuizTemplate
         Title={'What is your full name?'}
         Property="name"
@@ -18,7 +17,7 @@ const AddName = () => {
           <Input
             setData={(e) => setData(e)}
             height="20"
-            placeholder="name"
+            placeholder="name:"
             border="2"
             rounded_border="lg"
           />

@@ -51,6 +51,8 @@ const AddProfession = () => {
         navigateTo={'AddImage'}
         elements={
           <Select1
+            SelectSemiTitle={"proffesion's"}
+            SelectTitle={"Add you'r proffesion"}
             array={selectArray}
             setData={(e) => setData(e)}
             height="20"
