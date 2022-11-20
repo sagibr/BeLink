@@ -61,29 +61,28 @@ export const generateNewMatches = async (req, res) => {
         finalGrade = 0
       }
       finalGrades.push({
-        user: {
-          name: potentialUser.name,
-          profession: potentialUser.profession,
-          image: potentialUser.image,
-          about: potentialUser.about,
-          links: potentialUser.links,
-          education: potentialUser.education,
-          experience: potentialUser.experience,
-          tech: potentialUser.tech,
-          id: potentialUser._id,
-        },
+        username: potentialUser.name,
+        profession: potentialUser.profession[0],
+        image: potentialUser.image,
+        about: potentialUser.about,
+        links: potentialUser.links,
+        education: potentialUser.education,
+        experience: potentialUser.experience,
+        tech: potentialUser.tech,
+        id: potentialUser._id,
         grade: finalGrade,
       })
     }
-    const values = finalGrades
-      .map(({ grade }) => grade)
-      .sort((a, b) => b - a)
-      .slice(0, 10)
-    const top10 = finalGrades.filter(({ grade }) => values.includes(grade))
+    const top10 = finalGrades.sort((a, b) => b.grade - a.grade).slice(0, 10)
+    // const top10 = finalGrades.filter(({ grade }) => values.includes(grade))
+    console.log(top10.length)
+    top10.slice(0, 10)
+    console.log(top10.length)
     for (let i = 0; i < top10.length; i++) {
-      user.seenUsers.push(top10[i].user.id)
+      user.seenUsers.push(top10[i].id)
     }
     await user.save()
+    console.log(top10.length)
     res.send(top10)
     // const top10Users = []
     // for (const user of top10) {
