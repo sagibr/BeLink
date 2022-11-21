@@ -49,8 +49,8 @@ const UserSchema = mongoose.Schema([
         messages: [
           {
             text: { type: String, required: true },
-            userType: { type: String, required: true },
-            time: { type: String, required: true },
+            user: { type: String, required: true },
+            timestamp: { type: String, required: true },
           },
         ],
       },

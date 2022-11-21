@@ -1,4 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Authorization from './screens/authorization/Authorization'
 import Login from './screens/authorization/login/Login'
 import AddAbout from './screens/authorization/register/quiz/AddAbout'
@@ -17,26 +19,41 @@ import Register from './screens/authorization/register/Register'
 import ChatScreen from './screens/ChatScreen'
 import Home from './screens/Home'
 import MessageScreen from './screens/MessageScreen'
-import Profile from './screens/Profile'
-import Test from './screens/Test'
-import {  useSelector } from 'react-redux'
 import MyProfile from './screens/MyProfile'
+import Profile from './screens/Profile'
 import Settings from './screens/Settings'
+import Test from './screens/Test'
+import { loginSuccess } from './utils/redux/slices/userLoginSlice'
+import { publicRequest } from './utils/requestMethods'
 
 const Stack = createNativeStackNavigator()
 
 function StackNavigator() {
-  const user = useSelector((state) => state.currentUser.currentUser) 
-  console.log(user);
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.currentUser.currentUser)
+  const [loading, setLoading] = useState(false)
+  console.log(user)
   const test = false
-
-  return (
+  const refreshUser = async () => {
+    const res = await publicRequest('/auth/refresh')
+    dispatch(loginSuccess(res.data))
+    setLoading(false)
+  }
+  useEffect(() => {
+    if (!user) {
+      setLoading(true)
+      refreshUser()
+    }
+  }, [])
+  return loading ? (
+    <></>
+  ) : (
     <Stack.Navigator>
       {test ? (
         <>
           <Stack.Screen name="Test" component={Test} />
         </>
-      ) : user!=null ? (
+      ) : user != null ? (
         <>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />

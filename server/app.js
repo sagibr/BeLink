@@ -16,7 +16,7 @@ const app = express()
 app.use(credentials)
 
 // Cross Origin Resource Sharing
-app.use(cors({ credentials: true, origin: `${process.env.SITE_URL}` }))
+app.use(cors({ credentials: true, origin: `http://localhost:19006` }))
 app.use(morgan('dev'))
 
 // built-in middleware to handle urlencoded form data
