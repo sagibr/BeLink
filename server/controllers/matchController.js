@@ -119,6 +119,10 @@ export const handleUserSwipedRight = async (req, res) => {
       }
       user.chatList.push(newChat)
       await user.save()
+      newChat.userImage = user.image
+      newChat.userName = user.name
+      potentialMatch.chatList.push(newChat)
+      await potentialMatch.save()
     }
     res.send({ match: itsAMatch })
   } catch (err) {
