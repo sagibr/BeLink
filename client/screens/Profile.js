@@ -10,7 +10,8 @@ const Profile = ({route}) => {
   const { user } = route.params
   console.log(user);
   return (
-    <View style={tw` w-full h-full `}>
+    <View style={tw` w-full h-full p-10`}>
+    <View style={tw` w-100% h-100% rounded overflow-hidden shadow-lg`}>
       {/* image */}
       <View style={tw` flex-1 m-top-5`}>
         <Image
@@ -23,7 +24,7 @@ const Profile = ({route}) => {
         {/* details */}
         <View style={tw` flex-1 m-top-1`}>
           <View>
-            <Text style={tw`text-3xl font-semibold text-center m-top-6`}>
+            <Text style={tw`text-3xl font-semibold text-center font-bold text-xl mb-2`}>
               {user.name}
             </Text>
           </View>
@@ -58,10 +59,10 @@ const Profile = ({route}) => {
         </View>
 
         {/* line */}
-        <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
+        {/* <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} /> */}
 
         {/* links */}
-        <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
+        {/* <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
           <Entypo
             name="linkedin-with-circle"
             size={24}
@@ -75,7 +76,8 @@ const Profile = ({route}) => {
             color="black"
             onPress={() => Linking.openURL('http://github.com')}
           />
-        </View>
+        </View> */}
+      </View>
       </View>
     </View>
   )
