@@ -19,35 +19,41 @@ import Home from './screens/Home'
 import MessageScreen from './screens/MessageScreen'
 import Profile from './screens/Profile'
 import Test from './screens/Test'
+import {  useSelector } from 'react-redux'
+import MyProfile from './screens/MyProfile'
+import Settings from './screens/Settings'
 
 const Stack = createNativeStackNavigator()
 
 function StackNavigator() {
-  const user = false
+  const user = useSelector((state) => state.currentUser.currentUser) 
+  console.log(user);
   const test = false
+
   return (
     <Stack.Navigator>
       {test ? (
         <>
           <Stack.Screen name="Test" component={Test} />
         </>
-      ) : user ? (
+      ) : user!=null ? (
         <>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="MyProfile" component={MyProfile} />
           <Stack.Screen name="Chats" component={ChatScreen} />
+          <Stack.Screen name="Setting" component={Settings} />
           <Stack.Screen name="Message" component={MessageScreen} />
         </>
       ) : (
         <>
-          <Stack.Screen name="Test" component={Test} />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="AddEmail" component={AddEmail} />
           <Stack.Screen name="AddPassword" component={AddPassword} />
           <Stack.Screen name="AddLabeling" component={AddLabeling} />
           <Stack.Screen name="AddProfession" component={AddProfession} />
           <Stack.Screen name="AddImage" component={AddImage} />
           <Stack.Screen name="Authorization" component={Authorization} />
-          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="AddName" component={AddName} />
           <Stack.Screen name="AddExtraKnowledge" component={AddExtraKnowledge} />

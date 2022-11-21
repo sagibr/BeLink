@@ -1,6 +1,7 @@
-import User from '../models/user'
+import User from '../models/user.js'
 
 export const handleSendMessage = async (req, res) => {
+  console.log("start chat");
   const userEmail = req.user
   const roomId = req.params.roomid
   const message = req.body

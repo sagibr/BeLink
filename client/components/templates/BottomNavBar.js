@@ -1,26 +1,29 @@
-import { View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { Ionicons, SimpleLineIcons  } from '@expo/vector-icons';
 import tw from '../../utils/config/tailwindConf';
+import { useNavigation } from '@react-navigation/native';
 
 const BottomNavBar = () => {
+  const navigation = useNavigation();
   return (
     <View style={tw`w-full h-full flex-row items-center justify-around content-center p-3 bg-white`}>
       {/* Chat */}
-      <View>
+      <TouchableOpacity onPress={()=>{navigation.navigate('MyProfile')}}>
         <SimpleLineIcons name="user" size={30} color="black" />
         
-      </View>
+      </TouchableOpacity>
       {/* Home */}
-        <View>
+        <TouchableOpacity onPress={()=>{navigation.navigate('Home')}}>
         <Ionicons name="home-outline" size={30} color="black" />
-        </View>
+        </TouchableOpacity>
       {/* profile */}
-      <View>
+      <TouchableOpacity onPress={()=>{navigation.navigate('Chats')}}>
       <Ionicons name="chatbubbles-outline" size={30} color="black" />
-      </View>
+      </TouchableOpacity>
     </View>
   )
 }
+
 
 export default BottomNavBar

@@ -7,9 +7,9 @@ const ChatRow = ({item}) => {
     const navigation = useNavigation()
     const handleNavigation = () => {
         navigation.navigate("Message", {
-            id: item.id,
-            name: item.name,
-            messages: item.messages
+            id: item.roomId,
+            name: item.userName,
+            messages: item?.messages
         });
     };
   return (
@@ -17,12 +17,12 @@ const ChatRow = ({item}) => {
         <Image
         style={tw`w-16 h-16 rounded-full mr-4`}
         source={{
-          uri: 'https://media-exp1.licdn.com/dms/image/C4E03AQE1Jwbg59S_6A/profile-displayphoto-shrink_200_200/0/1516356309239?e=1671667200&v=beta&t=zWLcHdzbI61fY13I6aaNi0qYgsnoe3k6sYeQzgeDTbY'
+          uri: item.userImage
         }}
       />
       <View>
-        <Text style={tw`text-lg font-semibold`}>{item.name}</Text>
-        <Text>Say Hi!</Text>
+        <Text style={tw`text-lg font-semibold`}>{item.userName}</Text>
+        {item?.messages[0] ? <Text>{item?.messages?.text}</Text> : <Text>Say Hi!</Text> }
       </View>
     </TouchableOpacity>
   )

@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import credentials from './middleware/credentials.js'
 import verifyJWT from './middleware/verifyJWT.js'
 import authRouter from './routes/authRouter.js'
+import { default as chatRouter, default as chatRoutes } from './routes/chatRouter.js'
 import matchRouter from './routes/matchRouter.js'
 import userRouter from './routes/userRouter.js'
 
@@ -15,8 +16,8 @@ const app = express()
 app.use(credentials)
 
 // Cross Origin Resource Sharing
-app.use(cors({credentials: true, origin: `${process.env.SITE_URL}`}))
-app.use(morgan("dev"))
+app.use(cors({ credentials: true, origin: `${process.env.SITE_URL}` }))
+app.use(morgan('dev'))
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }))
@@ -34,5 +35,7 @@ app.use(verifyJWT)
 app.use(`/user`, userRouter)
 
 app.use('/match', matchRouter)
+
+app.use('/chat', chatRouter)
 
 export default app

@@ -2,25 +2,16 @@ import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import tw from '../../utils/config/tailwindConf'
 import { useNavigation } from '@react-navigation/native'
+import {  useSelector } from 'react-redux'
 
-const user = 
-{
-  email: "ronen@gmail.com",
-  username: "Ronen",
-  profession: "Devloper",
-  image: "https://media-exp1.licdn.com/dms/image/C4E03AQE1Jwbg59S_6A/profile-displayphoto-shrink_200_200/0/1516356309239?e=1671667200&v=beta&t=zWLcHdzbI61fY13I6aaNi0qYgsnoe3k6sYeQzgeDTbY",
-  about: "I have been a programmer for five years focusing on the back end",
-  Likes: [],
-  education: [],
-  experience: [],
-  tech: {}
-}
 
 const NavBar = () => {
   const navigation = useNavigation();
+
+const user = useSelector((state) => state.currentUser.currentUser).user
   return (
       <View style={tw` w-full flex-row items-center justify-between content-center p-3 `}>
-        <TouchableOpacity onPress={()=>{navigation.navigate('Profile')}}>
+        <TouchableOpacity onPress={()=>{navigation.navigate('Setting')}}>
           <Image style={tw` h-10 w-10 rounded-full `} source={{ uri: user.image }} />
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>{navigation.navigate('Home')}}>

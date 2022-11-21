@@ -55,6 +55,7 @@ const AddExtraKnowledge = () => {
         data={data}
         navigateTo={AddTime}
         elements={
+
           <MultySelect
             SelectSemiTitle={"proffesion's"}
             SelectTitle={"Add you'r proffesion"}
@@ -65,6 +66,7 @@ const AddExtraKnowledge = () => {
             border="2"
             rounded_border="lg"
           />
+
         }
         // elements={
         //   <>
