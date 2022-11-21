@@ -9,7 +9,7 @@ const BottomNavBar = () => {
   return (
     <View style={tw`w-full h-full flex-row items-center justify-around content-center p-3 bg-white`}>
       {/* Chat */}
-      <TouchableOpacity onPress={()=>{navigation.navigate('Profile')}}>
+      <TouchableOpacity onPress={()=>{navigation.navigate('MyProfile')}}>
         <SimpleLineIcons name="user" size={30} color="black" />
         
       </TouchableOpacity>

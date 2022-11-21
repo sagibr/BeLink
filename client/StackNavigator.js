@@ -18,6 +18,8 @@ import MessageScreen from './screens/MessageScreen'
 import Profile from './screens/Profile'
 import Test from './screens/Test'
 import {  useSelector } from 'react-redux'
+import MyProfile from './screens/MyProfile'
+import Settings from './screens/Settings'
 
 const Stack = createNativeStackNavigator()
 
@@ -36,7 +38,9 @@ function StackNavigator() {
         <>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="MyProfile" component={MyProfile} />
           <Stack.Screen name="Chats" component={ChatScreen} />
+          <Stack.Screen name="Setting" component={Settings} />
           <Stack.Screen name="Message" component={MessageScreen} />
         </>
       ) : (
