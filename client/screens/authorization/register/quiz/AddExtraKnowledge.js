@@ -7,10 +7,11 @@ import Select1 from '../../../../components/basic/Select1'
 import UIButton from '../../../../components/basic/UIButton'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 import tw from '../../../../utils/config/tailwindConf'
+import AddTechMonth from './AddTechMonth'
+import AddTime from './AddTime'
 
 const AddExtraKnowledge = () => {
   const [data, setData] = useState({})
-  // const [inputData, setInputData] = useState([])
   const selectArray = [
     {
       item: 'Devloper',
@@ -46,20 +47,13 @@ const AddExtraKnowledge = () => {
     },
   ]
 
-  // useEffect(() => {
-  //   const newData = {}
-  //   for (const item of inputData) {
-  //     newData[item.tech] = item.time
-  //     setData({ ...newData })
-  //   }
-  // }, [inputData])
   return (
     <View>
       <QuizTemplate
         Title={'What is your technological knowledge?'}
         Property="tech"
         data={data}
-        navigateTo={AddExtraKnowledge}
+        navigateTo={AddTime}
         elements={
           <MultySelect
             SelectSemiTitle={"proffesion's"}

@@ -11,6 +11,8 @@ import AddLabeling from './screens/authorization/register/quiz/AddLabeling'
 import AddName from './screens/authorization/register/quiz/AddName'
 import AddPassword from './screens/authorization/register/quiz/AddPassword'
 import AddProfession from './screens/authorization/register/quiz/AddProfession'
+import AddTechMonth from './screens/authorization/register/quiz/AddTechMonth'
+import AddTime from './screens/authorization/register/quiz/AddTime'
 import Register from './screens/authorization/register/Register'
 import ChatScreen from './screens/ChatScreen'
 import Home from './screens/Home'
@@ -49,9 +51,11 @@ function StackNavigator() {
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="AddName" component={AddName} />
           <Stack.Screen name="AddExtraKnowledge" component={AddExtraKnowledge} />
+          <Stack.Screen name="AddTechMonth" component={AddTechMonth} />
           <Stack.Screen name="AddExperience" component={AddExperience} />
           <Stack.Screen name="AddEducation" component={AddEducation} />
           <Stack.Screen name="AddAbout" component={AddAbout} />
+          <Stack.Screen name="AddTime" component={AddTime} />
         </>
       )}
     </Stack.Navigator>

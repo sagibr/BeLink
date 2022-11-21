@@ -29,7 +29,13 @@ const initialState = {
       },
     ],
 
-    tech: {},
+    tech: [
+      {
+        item: '',
+        id: '',
+        time: 0,
+      },
+    ],
   },
 }
 
@@ -40,10 +46,13 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       state.value[action.payload.property] = action.payload.value
     },
+    updateTime: (state, action) => {
+      state.value.tech.time = action.payload.value
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { updateUser } = userSlice.actions
+export const { updateUser, updateTime } = userSlice.actions
 
 export default userSlice.reducer
