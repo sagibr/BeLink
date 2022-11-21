@@ -18,23 +18,11 @@ const MultySelect = (props) => {
         options={props.array}
         selectedValues={selectedValue}
         onMultiSelect={(newValue) => {
-          //   setSelectedValue(newValue)
-          setSelectedValue(xorBy(selectedValue, [newValue], 'id'))
+          setSelectedValue(xorBy(selectedValue, [newValue]))
           props.setData(selectedValue)
         }}
-        // onTapClose={onMultiChange()}
         isMulti
       />
-      {/* <SelectBox
-        label="Select single"
-        options={props.array}
-        value={selectedValue}
-        onChange={(newValue) => {
-          setSelectedValue(newValue)
-          props.setData(newValue.item)
-        }}
-        hideInputFilter={false}
-      /> */}
     </View>
   )
 }
