@@ -1,37 +1,48 @@
+import React, { useEffect, useState } from 'react'
 import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
   Button,
+  FlatList,
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
+  Text,
+  TextInput,
   TouchableWithoutFeedback,
-  Keyboard,
-  FlatList,
+  View,
 } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import tw from '../utils/config/tailwindConf'
-import SenderMessage from '../components/ChatClone/SenderMessage'
+import { useSelector } from 'react-redux'
 import RecieverMessage from '../components/ChatClone/RecieverMessage'
+import SenderMessage from '../components/ChatClone/SenderMessage'
+import tw from '../utils/config/tailwindConf'
+import { userRequest } from '../utils/requestMethods'
 import socket from '../utils/socket/socket'
-import {  useSelector } from 'react-redux'
 
 const MessageScreen = ({ route }) => {
   const { name, id, messages } = route.params
   const [input, setInput] = useState('')
   const [chatMessages, setChatMessages] = useState(messages)
 
-  const user = useSelector((state) => state.currentUser.currentUser?.user?.name) 
+  const accessToken = useSelector((state) => state.currentUser.currentUser).accessToken
+  const user = useSelector((state) => state.currentUser.currentUser.user)
 
   useEffect(() => {
     socket.emit('join_room', id)
+    let currentChat
+    console.log(user)
+    for (const chat of user.chatList) {
+      if (chat.roomId === id) {
+        currentChat = chat
+      }
+    }
+    console.log(currentChat)
+    setChatMessages([...currentChat.messages])
   }, [])
   useEffect(() => {
     console.log('socket change')
-    socket.on('receive_message', (message) =>
+    socket.on('receive_message', (message) => {
       setChatMessages((chatMessages) => [...chatMessages, message])
-    )
+    })
   }, [socket])
 
   /*👇🏻 
@@ -48,10 +59,23 @@ const MessageScreen = ({ route }) => {
       new Date().getMinutes() < 10
         ? `0${new Date().getMinutes()}`
         : `${new Date().getMinutes()}`
-    const newMessage = { text: input, user: user, timestamp: { hour, mins } }
+    const newMessage = { text: input, user: user.name, timestamp: { hour, mins } }
     setChatMessages((chatMessages) => [...chatMessages, newMessage])
     if (user) {
-      socket.emit('send_message', { text: input, user: user, timestamp: { hour, mins }, room_id: id })
+      socket.emit('send_message', {
+        text: input,
+        user: user.name,
+        timestamp: { hour, mins },
+        room_id: id,
+      })
+      console.log(accessToken)
+      const userReq = userRequest(accessToken)
+      userReq.post(`/chat/message/${id}`, {
+        text: input,
+        user: user.name,
+        timestamp: { hour, mins },
+        room_id: id,
+      })
     }
     console.log(newMessage)
   }
@@ -61,7 +85,9 @@ const MessageScreen = ({ route }) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View>
           {chatMessages.map((message, index) => {
-            return message.user === user ? (
+            console.log(message.user)
+            console.log(user)
+            return message.user === user.name ? (
               <SenderMessage key={index} message={message} />
             ) : (
               <RecieverMessage key={index} message={message} />
