@@ -46,9 +46,6 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       state.value[action.payload.property] = action.payload.value
     },
-    updateTime: (state, action) => {
-      state.value.tech.time = action.payload.value
-    },
   },
 })
 
