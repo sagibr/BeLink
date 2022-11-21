@@ -8,42 +8,42 @@ import { useState } from 'react'
 import * as ImagePicker from 'expo-image-picker'
 
 const FileUpload = (props) => {
-  const [image, setImage] = useState(null)
+  // const [image, setImage] = useState(null)
+  const [imageLink, setImageLink] = useState(null)
+  console.log(imageLink);
 
-  const uploadImage = () => {
-    const formData = new FormData()
-    formData.append('file', image)
-    formData.append('upload_preset', process.env.CLOUDNERY_SEC)
-    console.log(formData)
-
-    axios
-      .post('https://api.cloudinary.com/v1_1/dxexnhjmi/image/upload', formData)
+  const uploadImage = async(image) => {
+    
+    const data = new FormData()
+    data.append('file', image)
+    data.append('upload_preset', "trackerApp")
+    console.log(data);
+    await axios.post('https://api.cloudinary.com/v1_1/dsk7a1p4y/image/upload', data)
       .then((res) => {
-        setProduct({ ...product, img: res.data.secure_url })
+        setImageLink({img: res.data.secure_url })
       })
+    
   }
+  console.log();
 
-  const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
+  const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
       quality: 1,
-    })
-
-    console.log(result)
+    });
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri)
-      uploadImage()
+      console.log(result.assets[0].uri.split("data:")[1]);
+      uploadImage(result.assets[0].uri.split("data:")[1])
+    } else {
+      alert('You did not select any image.');
     }
-  }
+  };
 
   return (
     <Pressable
       style={tw` h-1/3 w-1/3 border-2 rounded-xl border-primary flex items-center`}
-      onPress={pickImage}
+      onPress={pickImageAsync}
     >
       <AntDesign
         name="camerao"

@@ -15,13 +15,19 @@ const QuizTemplate = (props) => {
   const [inputData, setInputData] = useState('')
 
   const user = useSelector((state) => state.user.value)
-
+  const [error,setError]=useState(false)
   const handlePress = () => {
     console.log('quiz template data: ' + data)
     console.log('quiz template property: ' + props.Property)
-
-    // const updatedUser = { property: props.property, value: data }
-    dispatch(updateUser({ property: props.Property, value: data }))
+    const isEmpty = Object.keys(data).length === 0;
+    isEmpty=false
+    if (!isEmpty){
+      dispatch(updateUser({ property: props.Property, value: data }))
+      setError(false)
+      navigation.navigate(props.navigateTo)
+    }else{
+      setError(true)
+    }
     console.log(user)
   }
 
@@ -38,11 +44,13 @@ const QuizTemplate = (props) => {
 
         <View style={tw`flex-4 flex justify-center`}>{props.elements}</View>
 
+        {error && <Text>error</Text>}
+
         <View style={tw`flex-1 flex justify-end p-5`}>
           <UIButton
             onPress={() => {
               handlePress()
-              navigation.navigate(props.navigateTo)
+              
             }}
             padding="5"
             color="primary"

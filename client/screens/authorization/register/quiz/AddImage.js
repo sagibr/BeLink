@@ -4,11 +4,12 @@ import FileUpload from '../../../../components/basic/FileUpload'
 import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 
 const AddImage = () => {
   const [data, setData] = useState({})
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'Add your profile image:'}
         Property="image"
