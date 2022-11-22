@@ -16,7 +16,7 @@ const app = express()
 app.use(credentials)
 
 // Cross Origin Resource Sharing
-app.use(cors({ credentials: true, origin: `http://localhost:19006` }))
+app.use(cors({ credentials: true, origin: `https://belink.netlify.app` }))
 app.use(morgan('dev'))
 
 // built-in middleware to handle urlencoded form data
