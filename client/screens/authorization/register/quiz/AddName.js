@@ -7,7 +7,7 @@ import tw from '../../../../utils/config/tailwindConf'
 const AddName = () => {
   const [data, setData] = useState({})
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'What is your full name?'}
         Property="name"

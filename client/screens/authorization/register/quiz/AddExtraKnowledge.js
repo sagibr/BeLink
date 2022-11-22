@@ -48,7 +48,7 @@ const AddExtraKnowledge = () => {
   ]
 
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'What is your technological knowledge?'}
         Property="tech"

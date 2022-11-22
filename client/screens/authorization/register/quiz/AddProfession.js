@@ -4,6 +4,7 @@ import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import Select1 from '../../../../components/basic/Select1'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 
 const AddProfession = () => {
   const [data, setData] = useState({})
@@ -43,7 +44,7 @@ const AddProfession = () => {
     },
   ]
   return (
-    <View>
+    <View style={tw`w-full h-full`}> 
       <QuizTemplate
         Title={"I'm looking for:"}
         Property="profession"

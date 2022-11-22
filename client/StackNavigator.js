@@ -15,6 +15,7 @@ import AddPassword from './screens/authorization/register/quiz/AddPassword'
 import AddProfession from './screens/authorization/register/quiz/AddProfession'
 import AddTechMonth from './screens/authorization/register/quiz/AddTechMonth'
 import AddTime from './screens/authorization/register/quiz/AddTime'
+import FinshQuiz from './screens/authorization/register/quiz/FinshQuiz'
 import Register from './screens/authorization/register/Register'
 import ChatScreen from './screens/ChatScreen'
 import Home from './screens/Home'
@@ -23,6 +24,7 @@ import MyProfile from './screens/MyProfile'
 import Profile from './screens/Profile'
 import Settings from './screens/Settings'
 import Test from './screens/Test'
+import Welcome from './screens/Welcome'
 import { loginSuccess } from './utils/redux/slices/userLoginSlice'
 import { publicRequest } from './utils/requestMethods'
 
@@ -34,15 +36,21 @@ function StackNavigator() {
   const [loading, setLoading] = useState(false)
   console.log(user)
   const test = false
+  
   const refreshUser = async () => {
-    const res = await publicRequest('/auth/refresh')
-    dispatch(loginSuccess(res.data))
-    setLoading(false)
+    try {
+      const res = await publicRequest('/auth/refresh')
+      dispatch(loginSuccess(res.data))
+      setLoading(false)
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
   useEffect(() => {
     if (!user) {
-      setLoading(true)
-      refreshUser()
+      setLoading(false)
+      // refreshUser()
     }
   }, [])
   return loading ? (
@@ -64,7 +72,10 @@ function StackNavigator() {
         </>
       ) : (
         <>
+          <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="FinshQuiz" component={FinshQuiz} />
           <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Test" component={Test} />
           <Stack.Screen name="AddEmail" component={AddEmail} />
           <Stack.Screen name="AddPassword" component={AddPassword} />
           <Stack.Screen name="AddLabeling" component={AddLabeling} />

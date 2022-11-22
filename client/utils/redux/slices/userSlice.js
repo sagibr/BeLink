@@ -44,6 +44,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     updateUser: (state, action) => {
+      console.log("redux action",action);
       state.value[action.payload.property] = action.payload.value
     },
   },

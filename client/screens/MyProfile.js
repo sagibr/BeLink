@@ -10,7 +10,9 @@ const MyProfile = () => {
     const user = useSelector((state) => state.currentUser.currentUser).user
     console.log("name", user.name);
   return user!=null && (
-    <View style={tw` w-full h-full `}>
+    <View style={tw`h-full w-full p-5`}>
+
+    <View style={tw`h-full w-full rounded shadow-lg bg-white`}>
       {/* image */}
       <View style={tw` flex-1 m-top-5`}>
         <Image
@@ -23,45 +25,47 @@ const MyProfile = () => {
         {/* details */}
         <View style={tw` flex-1 m-top-1`}>
           <View>
-            <Text style={tw`text-3xl font-semibold text-center m-top-6`}>
+            <Text style={tw`text-gray-900 font-bold text-xl mb-2`}>
               {user.name}
             </Text>
           </View>
           <View style={tw`flex-row justify-center m-top-9`}>
             <MaterialCommunityIcons name="professional-hexagon" size={24} color="black" />
-            <Text>{user.profession}</Text>
-            <Text>{user?.education && user?.education[0]?.location}</Text>
+            <Text style={tw`text-gray-700 text-base`}>{user.profession}</Text>
+            <Text style={tw`text-gray-700 text-base`}>{user?.education && user?.education[0]?.location}</Text>
           </View>
         </View>
         {/* line */}
         <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
 
         {/* langauge */}
-        <Text style={tw`text-center font-bold`}>technology:</Text>
+        <Text style={tw`text-gray-900 font-bold text-xl mb-2`}>Technology:</Text>
         <View style={tw`flex flex-2 flex-row flex-wrap flex-start`}>
           {user?.tech && Object.keys(user?.tech).map((tech, index) => {
             return <Skills key={index} tech={tech} />
           })}
         </View>
-
-        <Text style={tw`text-center font-bold m-bottom-1`}>
-          <FontAwesome name="book" size={24} color="black" /> education:{' '}
+        <FontAwesome name="book" size={24} color="black" />
+        <Text style={tw`text-gray-900 font-bold text-xl mb-2`}>
+           Education:
+        </Text>
+        <Text>
           {user?.education && user?.education[0]?.location}
+
         </Text>
         {/* line */}
         <View style={tw`my-2 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
 
         {/* about */}
         <View style={tw` flex-1.5 `}>
-          <Text style={tw`text-center font-bold m-top-3`}>about me: </Text>
+          <Text style={tw`text-center font-bold m-top-3`}>About me: </Text>
           <Text style={tw`m-left-5 m-right-5 m-top-5`}>{user?.about} </Text>
         </View>
 
-        {/* line */}
-        <View style={tw`my-3 h-px bg-gray-300 border-0 dark:bg-gray-700`} />
+
 
         {/* links */}
-        <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
+        {/* <View style={tw`flex-row flex-0.5 justify-center items-center justify-around `}>
           <Entypo
             name="linkedin-with-circle"
             size={24}
@@ -75,8 +79,9 @@ const MyProfile = () => {
             color="black"
             onPress={() => Linking.openURL('http://github.com')}
           />
-        </View>
+        </View> */}
       </View>
+    </View>
     </View>
   )
 }

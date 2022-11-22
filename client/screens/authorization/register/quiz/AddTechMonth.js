@@ -21,7 +21,7 @@ const AddTechMonth = () => {
   //     })
   //   }
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       {tech.map((item, index) => (
         <View key={index}>
           <TextInput

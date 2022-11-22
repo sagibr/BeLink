@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 import Input from '../../../../components/basic/Input'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 import AddEducation from './AddEducation'
 import AddExperience from './AddExperience'
 
@@ -11,7 +12,7 @@ const AddAbout = () => {
     links: '',
   })
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'Tell us about yourself'}
         Property="about"

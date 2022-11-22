@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import Swiper from '../components/basic/Swiper'
+import SwiperComp from '../components/basic/SwiperComp'
+import Swiper from '../components/basic/SwiperComp'
 import BottomNavBar from '../components/templates/BottomNavBar'
 import NavBar from '../components/templates/NavBar'
 import tw from '../utils/config/tailwindConf'
@@ -15,7 +16,7 @@ const Home = () => {
 
       {/* swiper */}
       <View style={tw`flex-10 `}>
-        <Swiper />
+        <SwiperComp />
       </View>
 
       {/* botoom NAVBAR */}
