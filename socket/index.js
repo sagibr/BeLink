@@ -5,7 +5,7 @@ const cors = require('cors')
 const PORT = process.env.PORT || 5000
 const socketIO = require('socket.io')(http, {
   cors: {
-    origin: '*',
+    origin: 'https://belink.netlify.app/',
   },
 })
 
