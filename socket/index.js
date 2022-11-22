@@ -11,7 +11,7 @@ const socketIO = require('socket.io')(http, {
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors())
+app.use(cors({ origin: `https://belink.netlify.app` }))
 
 socketIO.on('connection', (socket) => {
   console.log(` ${socket.id} user just connected!`)
