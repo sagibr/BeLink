@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { SafeAreaView, Text, View } from 'react-native'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import tw from '../../utils/config/tailwindConf'
 import { userRequest } from '../../utils/requestMethods'
 import Swiper from 'react-native-deck-swiper'
 import Card from './Card'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { AntDesign, Entypo } from '@expo/vector-icons'
 function SwiperComp() {
   const usersMatch = [

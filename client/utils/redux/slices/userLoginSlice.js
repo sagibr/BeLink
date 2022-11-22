@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setDataUser } from '../../AsyncStorage'
 
 const userLoginSlice = createSlice({
   name: 'user',
@@ -14,7 +13,6 @@ const userLoginSlice = createSlice({
     },
     loginSuccess: (state, action) => {
       state.currentUser = action.payload
-      setDataUser(action.payload)
       console.log('loginSuccess', state.currentUser)
       state.isFetching = false
     },

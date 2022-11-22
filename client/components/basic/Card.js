@@ -1,8 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { Image, Text, View } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 import tw from '../../utils/config/tailwindConf'
 
 function Card({ user }) {

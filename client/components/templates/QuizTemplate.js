@@ -20,7 +20,6 @@ const QuizTemplate = (props) => {
     console.log('quiz template data: ' + data)
     console.log('quiz template property: ' + props.Property)
     const isEmpty = Object.keys(data).length === 0;
-    isEmpty=false
     if (!isEmpty){
       dispatch(updateUser({ property: props.Property, value: data }))
       setError(false)
