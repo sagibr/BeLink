@@ -12,4 +12,5 @@ export const allowedOrigins = [
   'http://localhost:3000',
   'exp://10.195.25.165:19000',
   'http://localhost:19006',
+  'https://belink.netlify.app/'
 ]
