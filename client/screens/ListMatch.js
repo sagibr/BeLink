@@ -50,6 +50,7 @@ const user = {
 const ListMatch = () => {
   const user = useSelector((state) => state.currentUser.currentUser)
   const [allUsers, setAllUsers] = useState(null)
+
   const [userId, setUserId] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   const navigation = useNavigation()
@@ -86,6 +87,7 @@ const ListMatch = () => {
     console.log('match: ' + res.data.match)
     if (res.data.match) {
       console.log('its a match')
+      navigation.navigate('Chat')
     }
     removeFromAllUsers(index)
   }
@@ -97,7 +99,13 @@ const ListMatch = () => {
   }
   return (
     <SafeAreaView style={tw` w-full h-full`}>
-      <View style={tw` w-full h-1/4 bg-primary`}></View>
+      <View style={tw`w-full h-1/5 bg-primary p-5 flex justify-end`}>
+          <Text
+            style={tw`text-3xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white`}
+          >
+            Matches we found:
+          </Text>
+        </View>
       {allUsers == null ? (
         <Text>loading...</Text>
       ) : (
@@ -108,6 +116,7 @@ const ListMatch = () => {
               handleSwipedRight={handleSwipedRight}
               user={user}
               setUserId={setUserId}
+              
             />
           )
         })

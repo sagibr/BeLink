@@ -2,23 +2,36 @@ import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import tw from '../../utils/config/tailwindConf'
 import { useNavigation } from '@react-navigation/native'
-import {  useSelector } from 'react-redux'
+import {  useDispatch, useSelector } from 'react-redux'
+import UIButton from '../basic/UIButton'
 
 
 const NavBar = () => {
   const navigation = useNavigation();
-
+  const dispatch = useDispatch()
 const user = useSelector((state) => state.currentUser.currentUser).user
   return (
-      <View style={tw` w-full flex-row items-center justify-between content-center p-3 `}>
-        <TouchableOpacity onPress={()=>{navigation.navigate('Setting')}}>
+      <View style={tw`bg-white w-full flex-row items-center justify-between content-center p-3 `}>
+        <View style={tw`flex-1`}>
           <Image style={tw` h-10 w-10 rounded-full `} source={{ uri: user.image }} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>{navigation.navigate('Home')}}>
-          <Text style={tw`text-2xl font-bold text-primary`}>BeLink.</Text>
-        </TouchableOpacity>
+        </View>
+        <View onPress={()=>{navigation.navigate('Home')}} style={tw`flex-1`}>
+          <Text style={tw`text-2xl font-bold text-primary`}>BeLink</Text>
+        </View>
 
-        <View></View>
+        <View style={tw`flex-1`}>
+
+        <UIButton
+        text="Logout"
+        width="44"
+        color="white"
+        onPress={async () => {
+          const userReq = userRequest()
+          await userRequest('/auth/logout')
+          dispatch(logout())
+          navigation.navigate('Welcome')
+        }}/>
+        </View>
 
 
       </View>
