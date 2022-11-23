@@ -89,9 +89,10 @@ const MessageScreen = ({ route }) => {
   };
 
   return (
-    <SafeAreaView style={tw`relative w-full h-full`}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={tw`flex-10 `}>
+    <SafeAreaView style={tw`w-full h-full relative`}>
+      
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={tw`flex 11 w-full`}>
+        <View >
           {chatMessages.map((message, index) => {
             console.log(message.user);
             console.log(user);
@@ -103,9 +104,9 @@ const MessageScreen = ({ route }) => {
           })}
         </View>
       </TouchableWithoutFeedback>
-
+      
       <View
-        style={tw`absolute w-full bottom-0 flex-row justify-between bg-white items-center border-t border-gray-200 px-5 py-2`}
+        style={tw`flex-1 w-full flex-row justify-between bg-white items-center border-t border-gray-200 px-5 py-2`}
       >
         <TextInput
           style={tw`h-10 text-lg`}
@@ -115,6 +116,7 @@ const MessageScreen = ({ route }) => {
         />
         <Button title="send" color="#ff5864" onPress={handleNewMessage} />
       </View>
+
     </SafeAreaView>
   );
 };
