@@ -14,14 +14,15 @@ export const handleSendMessage = async (req, res) => {
   for (const chat of user.chatList) {
     if (chat.roomId === roomId) {
       chat.messages.push(message)
-      user.save()
       res.send(chat)
     }
   }
+  user.save()
+
   for (const chat of userTwo.chatList) {
     if (chat.roomId === roomId) {
       chat.messages.push(message)
-      userTwo.save()
     }
   }
+  userTwo.save()
 }
