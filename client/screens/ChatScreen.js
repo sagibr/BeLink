@@ -15,10 +15,7 @@ const ChatScreen = () => {
 
   return (
     <View style={tw` w-full h-full `}>
-      {/* NAVBAR */}
-      <View style={tw`flex-1 `}>
-        <NavBar />
-      </View>
+      
 
       <View style={tw`flex-10 `}>
         {rooms.length > 0 ? (

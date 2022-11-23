@@ -12,22 +12,11 @@ import { logout } from '../utils/redux/slices/userLoginSlice'
 import { userRequest } from '../utils/requestMethods'
 const Home = () => {
   const navigation = useNavigation()
-  const dispatch = useDispatch()
+  
 
   return (
     <View style={tw` w-full h-full bg-primary `}>
-      <UIButton
-        text="logout"
-        width="44"
-        color="red-800"
-        onPress={async () => {
-          console.log('asdasd')
-          const userReq = userRequest()
-          await userReq('/auth/logout')
-          dispatch(logout())
-          navigation.navigate('Welcome')
-        }}
-      />
+      
       {/* Logo */}
       <View style={tw`flex-3 pt-8 flex items-center justify-center`}>
         <Image
@@ -47,7 +36,7 @@ const Home = () => {
           mode="contained"
           onPress={() => navigation.navigate('ListMatch')}
         >
-          Press me
+          SEARCH
         </Button>
         <Text variant="displayLarge" style={tw`text-white pt-10 text-text-lg`}>
           Click the button to activate the algorithm to start connecting
