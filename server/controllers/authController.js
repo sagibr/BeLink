@@ -43,6 +43,7 @@ export const handleRegister = async (req, res) => {
   try {
     //encrypt the password
     const hashedPassword = await bcrypt.hash(password, parseInt(PasswordSalt))
+
     await User.create({
       name: name,
       email: email,
@@ -60,6 +61,7 @@ export const handleRegister = async (req, res) => {
     })
     res.status(201).json({ sucess: `New user ${email} created` })
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: err.message })
   }
 }

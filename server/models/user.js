@@ -22,7 +22,6 @@ const UserSchema = mongoose.Schema([
       {
         location: { type: String, required: true },
         time: { type: Number, required: true },
-        profession: { type: String, required: true },
         degree: { type: Boolean, required: true },
       },
     ],
@@ -30,7 +29,6 @@ const UserSchema = mongoose.Schema([
       {
         location: { type: String, required: true },
         time: { type: Number, required: true },
-        role: { type: String, required: true },
       },
     ],
     tech: {},
