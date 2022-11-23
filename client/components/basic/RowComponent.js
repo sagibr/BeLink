@@ -1,31 +1,32 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 import {
   Avatar,
   Button,
   Card,
   IconButton,
+  MD3Colors,
   TouchableRipple,
-  MD3Colors
-} from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import tw from "../../utils/config/tailwindConf";
-import { useSelector } from "react-redux";
+} from 'react-native-paper'
+import { useSelector } from 'react-redux'
+import tw from '../../utils/config/tailwindConf'
+import { userRequest } from '../../utils/requestMethods'
 
-const RowComponent = ({ user }) => {
-  const myUser = useSelector((state) => state.currentUser.currentUser);
-  const [isPress, setIsPress] = useState(false);
+const RowComponent = ({ user, handleSwipedLeft, handleSwipedRight, index }) => {
+  const myUser = useSelector((state) => state.currentUser.currentUser)
+  const [isPress, setIsPress] = useState(false)
 
-  const navigation = useNavigation();
+  const navigation = useNavigation()
 
   const handleNavigation = () => {
-    console.log("click Inform");
-    navigation.navigate("Profile", {
+    console.log('click Inform')
+    navigation.navigate('Profile', {
       user: user,
-    });
-  };
+    })
+  }
 
   // const swipedRight = async (userId) => {
   //   const userReq = userRequest(myUser.accessToken);
@@ -39,7 +40,7 @@ const RowComponent = ({ user }) => {
       <TouchableRipple
         style={tw`w-full h-1/6 bg-white`}
         onPress={() => {
-          setIsPress(!isPress);
+          setIsPress(!isPress)
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -58,7 +59,6 @@ const RowComponent = ({ user }) => {
             >
               <IconButton
                 icon="information-variant"
-
                 size={20}
                 onPress={handleNavigation}
               />
@@ -73,14 +73,14 @@ const RowComponent = ({ user }) => {
           >
             <Button
               mode="contained"
-              onPress={() => console.log("Pressed")}
+              onPress={() => handleSwipedLeft(user, index)}
               style={tw`bg-red-500`}
             >
               No match
             </Button>
             <Button
               mode="contained"
-              onPress={() => console.log("Pressed")}
+              onPress={() => handleSwipedRight(user, index)}
               style={tw`bg-green-500`}
             >
               Lets start!
@@ -89,7 +89,7 @@ const RowComponent = ({ user }) => {
         </Card>
       ) : null}
     </>
-  );
-};
+  )
+}
 
-export default RowComponent;
+export default RowComponent

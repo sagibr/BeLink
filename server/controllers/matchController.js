@@ -78,9 +78,9 @@ export const generateNewMatches = async (req, res) => {
     console.log(top10.length)
     top10.slice(0, 10)
     console.log(top10.length)
-    for (let i = 0; i < top10.length; i++) {
-      user.seenUsers.push(top10[i].id)
-    }
+    // for (let i = 0; i < top10.length; i++) {
+    //   user.seenUsers.push(top10[i].id)
+    // }
     await user.save()
     console.log(top10.length)
     res.send(top10)
@@ -105,6 +105,7 @@ export const handleUserSwipedRight = async (req, res) => {
     const potentialMatch = await User.findOne({ _id: matchId })
 
     user.match.push(potentialMatch._id)
+    user.seenUsers.push(matchId)
     await user.save()
 
     if (potentialMatch.match.includes(user._id)) {
@@ -125,6 +126,20 @@ export const handleUserSwipedRight = async (req, res) => {
       await potentialMatch.save()
     }
     res.send({ match: itsAMatch })
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+}
+export const handleUserSwipedLeft = async (req, res) => {
+  try {
+    const { matchId } = req.body
+
+    const userEmail = req.user
+    const user = await User.findOne({ email: userEmail })
+
+    user.seenUsers.push(matchId)
+    await user.save()
+    res.sendStatus(200)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
