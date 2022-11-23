@@ -28,13 +28,6 @@ const RowComponent = ({ user, handleSwipedLeft, handleSwipedRight, index }) => {
     })
   }
 
-  // const swipedRight = async (userId) => {
-  //   const userReq = userRequest(myUser.accessToken);
-  //   const res = await userReq.patch("match/swipedRight", {matchId: user.id})
-  //   cardsData.shift();
-  //   setCardsData([...cardsData]);
-  // };
-
   return (
     <>
       <TouchableRipple
