@@ -4,7 +4,8 @@ import tw from '../../utils/config/tailwindConf'
 import { useNavigation } from '@react-navigation/native'
 import {  useDispatch, useSelector } from 'react-redux'
 import UIButton from '../basic/UIButton'
-
+import { userRequest } from '../../utils/requestMethods'
+import { logout } from '../../utils/redux/slices/userLoginSlice'
 
 const NavBar = () => {
   const navigation = useNavigation();

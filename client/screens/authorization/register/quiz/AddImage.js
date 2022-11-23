@@ -8,7 +8,7 @@ import tw from '../../../../utils/config/tailwindConf'
 const AddImage = () => {
   const [data, setData] = useState({})
   return (
-    <View>
+
       <QuizTemplate
         Title={'Add an image'}
         Property="image"
@@ -24,7 +24,7 @@ const AddImage = () => {
           />
         }
       />
-    </View>
+
   )
 }
 

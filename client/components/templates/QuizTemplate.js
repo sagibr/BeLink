@@ -20,7 +20,6 @@ const QuizTemplate = (props) => {
     console.log("quiz template data: " + data);
     console.log("quiz template property: " + props.Property);
     let isEmpty = Object.keys(data).length === 0;
-    isEmpty = false;
     if (!isEmpty) {
       dispatch(updateUser({ property: props.Property, value: data }));
       setError(false);
@@ -44,9 +43,9 @@ const QuizTemplate = (props) => {
 
         <View style={tw`flex-4 flex justify-center`}>{props.elements}</View>
 
-        {error && <Text>error</Text>}
+        {error && <Text>error you must put data</Text>}
 
-        <View style={tw`flex-1 flex justify-end p-5`}>
+        <View style={tw`flex-1 flex justify-end mb-10 px-5`}>
           <UIButton
             onPress={() => {
               handlePress();
@@ -55,7 +54,7 @@ const QuizTemplate = (props) => {
             color="primary"
             text="send"
             textColor="white"
-            textSize="2xl"
+            textSize="base"
             rounded="full"
           ></UIButton>
         </View>
