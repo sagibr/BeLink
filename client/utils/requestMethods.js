@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://10.195.25.141:4000/'
-// const BASE_URL = 'https://belink-server.herokuapp.com/'
+// const BASE_jURL = 'http://10.195.25.141:4000/'
+const BASE_URL = 'https://belink-server.herokuapp.com/'
 // const BASE_URL = 'http://localhost:4000/'
 
 // const user =JSON.parse(localStorage?.getItem('user'))
