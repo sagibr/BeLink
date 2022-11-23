@@ -109,8 +109,10 @@ const ListMatch = () => {
       {allUsers == null ? (
         <Text>loading...</Text>
       ) : (
+        allUsers.length== 0 ? <Text>All Matches are over, try another time</Text> :
         allUsers.map((user, index) => {
           return (
+            
             <RowComponent
               handleSwipedLeft={handleSwipedLeft}
               handleSwipedRight={handleSwipedRight}

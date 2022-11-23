@@ -30,6 +30,7 @@ const RowComponent = ({ user, handleSwipedLeft, handleSwipedRight, index }) => {
 
   return (
     <>
+    
       <TouchableRipple
         style={tw`w-full h-1/6 bg-white`}
         onPress={() => {
@@ -66,14 +67,20 @@ const RowComponent = ({ user, handleSwipedLeft, handleSwipedRight, index }) => {
           >
             <Button
               mode="contained"
-              onPress={() => handleSwipedLeft(user, index)}
+              onPress={() => {
+                handleSwipedLeft(user, index)
+                setIsPress(false)
+              }}
               style={tw`bg-red-500`}
             >
               No match
             </Button>
             <Button
               mode="contained"
-              onPress={() => handleSwipedRight(user, index)}
+              onPress={() => {
+                handleSwipedRight(user, index)
+                setIsPress(false)
+              }}
               style={tw`bg-green-500`}
             >
               Lets start!
