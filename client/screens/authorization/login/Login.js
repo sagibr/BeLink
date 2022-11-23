@@ -1,21 +1,22 @@
 import axios from 'axios'
 import React, { useRef, useState } from 'react'
 import { Button, Text, TextInput, View } from 'react-native'
-import { login } from '../../../utils/redux/apiCalls'
 import { useDispatch, useSelector } from 'react-redux'
-import tw from '../../../utils/config/tailwindConf'
-import UIButton from '../../../components/basic/UIButton'
 import Input from '../../../components/basic/Input'
 import PasswordInput from '../../../components/basic/PasswordInput'
+import UIButton from '../../../components/basic/UIButton'
+import tw from '../../../utils/config/tailwindConf'
+import { login } from '../../../utils/redux/apiCalls'
 
 const Login = () => {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
+  const [errMsg, setErrMsg] = useState('')
   const dispatch = useDispatch()
   const handlePress = () => {
     console.log(email)
     console.log(password)
-    login(dispatch, { email: email, password: password })
+    login(dispatch, { email: email, password: password }, setErrMsg)
   }
   return (
     <View style={tw`w-full h-full bg-white `}>
@@ -42,6 +43,7 @@ const Login = () => {
           border="2"
           rounded_border="lg"
         />
+        <Text>{errMsg}</Text>
       </View>
       <View style={tw`flex-1 flex justify-end p-5`}>
         <UIButton

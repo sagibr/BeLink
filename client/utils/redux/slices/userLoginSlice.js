@@ -32,6 +32,9 @@ const userLoginSlice = createSlice({
       state.isFetching = false
       state.error = true
     },
+    logout: (state) => {
+      state.currentUser = null
+    },
   },
 })
 
@@ -43,5 +46,6 @@ export const {
   registerSuccess,
   registerFailure,
   updateUser,
+  logout,
 } = userLoginSlice.actions
 export default userLoginSlice.reducer

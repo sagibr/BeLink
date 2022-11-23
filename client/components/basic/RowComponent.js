@@ -1,21 +1,21 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 
+import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native'
 import {
   Avatar,
   Button,
   Card,
   IconButton,
-  TouchableRipple,
   MD3Colors,
+  TouchableRipple,
 } from 'react-native-paper'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
-import tw from '../../utils/config/tailwindConf'
 import { useSelector } from 'react-redux'
+import tw from '../../utils/config/tailwindConf'
 import { userRequest } from '../../utils/requestMethods'
 
-const RowComponent = ({ user, setUserId }) => {
+const RowComponent = ({ user, handleSwipedLeft, handleSwipedRight, index }) => {
   const myUser = useSelector((state) => state.currentUser.currentUser)
   const [isPress, setIsPress] = useState(false)
 
@@ -26,19 +26,6 @@ const RowComponent = ({ user, setUserId }) => {
     navigation.navigate('Profile', {
       user: user,
     })
-  }
-
-  console.log(user)
-  const swipedRight = async (userId) => {
-    const userReq = userRequest(myUser.accessToken)
-    const res = await userReq.patch('match/swipedRight', { matchId: user.id })
-    // cardsData.shift();
-    // setCardsData([...cardsData]);
-    console.log(res.data)
-    // if(res?.data?.match){
-    setUserId(user.id)
-    // }
-    // console.log(user.id);
   }
 
   return (
@@ -79,12 +66,16 @@ const RowComponent = ({ user, setUserId }) => {
           >
             <Button
               mode="contained"
-              onPress={() => console.log('Pressed')}
+              onPress={() => handleSwipedLeft(user, index)}
               style={tw`bg-red-500`}
             >
               No match
             </Button>
-            <Button mode="contained" onPress={swipedRight} style={tw`bg-green-500`}>
+            <Button
+              mode="contained"
+              onPress={() => handleSwipedRight(user, index)}
+              style={tw`bg-green-500`}
+            >
               Lets start!
             </Button>
           </Card.Actions>

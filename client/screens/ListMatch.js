@@ -1,13 +1,13 @@
-import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import tw from '../utils/config/tailwindConf'
-import { Avatar, TouchableRipple } from 'react-native-paper'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
-import RowComponent from '../components/basic/RowComponent'
+import React, { useEffect, useState } from 'react'
+import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
+import { Avatar, TouchableRipple } from 'react-native-paper'
 import { useSelector } from 'react-redux'
-import { userRequest } from '../utils/requestMethods'
+import RowComponent from '../components/basic/RowComponent'
 import SwiperComp from '../components/basic/SwiperComp'
+import tw from '../utils/config/tailwindConf'
+import { userRequest } from '../utils/requestMethods'
 const user = {
   name: 'test32',
   email: 'test32@gmail.com',
@@ -76,6 +76,25 @@ const ListMatch = () => {
     }
   }, [userId, isLoading])
 
+  const removeFromAllUsers = (index) => {
+    allUsers.splice(index, 1)
+    setAllUsers([...allUsers])
+  }
+  const handleSwipedRight = async (matchUser, index) => {
+    const userReq = userRequest(user.accessToken)
+    const res = await userReq.patch('/match/swipedRight', { matchId: matchUser.id })
+    console.log('match: ' + res.data.match)
+    if (res.data.match) {
+      console.log('its a match')
+    }
+    removeFromAllUsers(index)
+  }
+  const handleSwipedLeft = async (matchUser, index) => {
+    const userReq = userRequest(user.accessToken)
+    const res = await userReq.patch('/match/swipedLeft', { matchId: matchUser.id })
+
+    removeFromAllUsers(index)
+  }
   return (
     <SafeAreaView style={tw` w-full h-full`}>
       <View style={tw` w-full h-1/4 bg-primary`}></View>
@@ -83,7 +102,14 @@ const ListMatch = () => {
         <Text>loading...</Text>
       ) : (
         allUsers.map((user, index) => {
-          return <RowComponent user={user} setUserId={setUserId} />
+          return (
+            <RowComponent
+              handleSwipedLeft={handleSwipedLeft}
+              handleSwipedRight={handleSwipedRight}
+              user={user}
+              setUserId={setUserId}
+            />
+          )
         })
       )}
     </SafeAreaView>
