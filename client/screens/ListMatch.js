@@ -76,6 +76,10 @@ const ListMatch = () => {
     }
   }, [userId, isLoading])
 
+  const removeFromAllUsers = (index) => {
+    allUsers.splice(index, 1)
+    setAllUsers([...allUsers])
+  }
   const handleSwipedRight = async (matchUser, index) => {
     const userReq = userRequest(user.accessToken)
     const res = await userReq.patch('/match/swipedRight', { matchId: matchUser.id })
@@ -85,6 +89,12 @@ const ListMatch = () => {
     }
     removeFromAllUsers(index)
   }
+  const handleSwipedLeft = async (matchUser, index) => {
+    const userReq = userRequest(user.accessToken)
+    const res = await userReq.patch('/match/swipedLeft', { matchId: matchUser.id })
+
+    removeFromAllUsers(index)
+  }
   return (
     <SafeAreaView style={tw` w-full h-full`}>
       <View style={tw` w-full h-1/4 bg-primary`}></View>
@@ -92,7 +102,14 @@ const ListMatch = () => {
         <Text>loading...</Text>
       ) : (
         allUsers.map((user, index) => {
-          return <RowComponent user={user} setUserId={setUserId} />
+          return (
+            <RowComponent
+              handleSwipedLeft={handleSwipedLeft}
+              handleSwipedRight={handleSwipedRight}
+              user={user}
+              setUserId={setUserId}
+            />
+          )
         })
       )}
     </SafeAreaView>
