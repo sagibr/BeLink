@@ -1,8 +1,6 @@
 import axios from 'axios'
 import React, { useRef, useState } from 'react'
 import { Button, Text, TextInput, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import { login } from '../../../utils/redux/apiCalls'
 import { useDispatch, useSelector } from 'react-redux'
 import tw from '../../../utils/config/tailwindConf'

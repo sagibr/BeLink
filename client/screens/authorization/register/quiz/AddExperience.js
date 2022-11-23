@@ -4,6 +4,7 @@ import Input from '../../../../components/basic/Input'
 import Select from '../../../../components/basic/Select'
 import Select1 from '../../../../components/basic/Select1'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
+import tw from '../../../../utils/config/tailwindConf'
 import AddExtraKnowledge from './AddExtraKnowledge'
 
 const AddExperience = () => {
@@ -49,7 +50,7 @@ const AddExperience = () => {
   ]
 
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'Tell us about your work experience:'}
         Property="experience"

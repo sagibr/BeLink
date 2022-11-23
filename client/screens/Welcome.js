@@ -10,7 +10,7 @@ const Welcome = () => {
       <View style={tw`flex-1`}>
         <Image
           style={tw`w-full h-full rounded-lg`}
-          source={require('../assets/Logo.png')}
+          source={require('../assets/quiz-image/logo.png')}
         />
       </View>
       <View style={tw`flex-1 p-5`}>

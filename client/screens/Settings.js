@@ -7,28 +7,37 @@ const Settings = () => {
   const user = useSelector((state) => state.currentUser.currentUser).user
 
   return (
-    <View style={[tw`h-full pt-20`, { opacity: 0.89 }]}>
+    <View style={[tw`flex-1`]}>
       {/* image */}
-      <View style={tw`flex-1`}>
+      <View style={tw`flex-1 mt-5`}>
         <Image
           style={tw`h-32 w-32 rounded-full m-left-1/3`}
           source={{ uri: user.image }}
         />
+        <Text style={tw`text-xl text-gray-500 p-2 font-bold`}>{`Welcom ${user.name}`}</Text>
       </View>
 
-      {/* back to quiz */}
-      <View style={tw`flex-1`}>
-        <TouchableOpacity style={tw`bg-primary m-5 px-10 py-8 rounded-full mt-20`}>
-          <Text style={tw`text-center`}>edit profile</Text>
-        </TouchableOpacity>
+      <View style={tw`flex-2 flex justify-evenly py-10`}>
+        {/* back to quiz */}
+        <View >
+          <TouchableOpacity style={tw`bg-primary m-5 px-10 py-8 rounded-xl`}>
+            <Text style={tw`text-center text-white text-xl`}>Edit Profile</Text>
+          </TouchableOpacity>
+        </View>
+        {/* logout */}
+        <View >
+          <TouchableOpacity style={tw`bg-primary m-5 px-10 py-8 rounded-xl`}>
+            <Text style={tw`text-center text-white text-xl`}>Logout</Text>
+          </TouchableOpacity>
+        </View>
+        {/* delete accout */}
+        <View >
+          <TouchableOpacity style={tw`bg-primary m-5 px-10 py-8 rounded-xl`}>
+            <Text style={tw`text-center text-white text-xl`}>Delete Profile</Text>
+          </TouchableOpacity>
+        </View>
+
       </View>
-      {/* delete accout */}
-      <View style={tw`flex-1`}>
-        <TouchableOpacity style={tw`bg-primary m-5 px-10 py-8 rounded-full mt-20`}>
-          <Text style={tw`text-center`}>delete profile</Text>
-        </TouchableOpacity>
-      </View>
-      {/* delete accout */}
     </View>
   )
 }

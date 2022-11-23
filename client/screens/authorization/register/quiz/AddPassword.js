@@ -7,7 +7,7 @@ import tw from '../../../../utils/config/tailwindConf'
 const AddPassword = () => {
   const [data, setData] = useState({})
   return (
-    <View>
+    <View style={tw`w-full h-full`}> 
       <QuizTemplate
         Title={'Create a password'}
         Property="password"

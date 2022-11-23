@@ -9,7 +9,7 @@ const AddEmail = () => {
   const [data, setData] = useState({})
   return (
     //   onPress={() => navigation.navigate('AddName')}
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'Add your email:'}
         Property="email"

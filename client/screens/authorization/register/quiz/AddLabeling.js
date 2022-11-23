@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import UIButton from '../../../../components/basic/UIButton'
@@ -19,7 +19,7 @@ const AddLabeling = () => {
         <View style={tw`flex-1 flex items-center justify-center`}>
           <MaterialIcons name="work-outline" size={60} color="#3b82f6" />
           <View style={tw`pt-2`} />
-          <UIButton
+          {/* <UIButton
             padding="5"
             color="primary"
             text="worker"
@@ -28,7 +28,8 @@ const AddLabeling = () => {
             width="90%"
             rounded="3xl"
             onPress={() => navigation.navigate('AddProfession')}
-          />
+          /> */}
+          <Button onPress={navigation.navigate('AddProfession')}  title="worker"/>
         </View>
         <View style={tw`flex-1 flex items-center justify-center`}>
           <MaterialCommunityIcons
@@ -37,7 +38,7 @@ const AddLabeling = () => {
             color="#3b82f6"
           />
           <View style={tw`pt-2`} />
-          <UIButton
+          {/* <UIButton
             padding="5"
             color="primary"
             width="90%"
@@ -46,7 +47,8 @@ const AddLabeling = () => {
             textSize="2xl"
             rounded="3xl"
             onPress={() => navigation.navigate('AddProfession')}
-          />
+          /> */}
+          <Button onPress={navigation.navigate('AddProfession')} title="company"/>
         </View>
       </View>
     </View>

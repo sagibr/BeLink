@@ -56,7 +56,7 @@ const AddEducation = () => {
     },
   ]
   return (
-    <View>
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={'Tell us about your education:'}
         Property="education"
