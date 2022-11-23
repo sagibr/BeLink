@@ -1,34 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { Text, TextInput, View } from 'react-native'
-import tw from '../../utils/config/tailwindConf'
-import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../utils/redux/slices/userSlice'
-import UIButton from '../basic/UIButton'
-import Input from '../basic/Input'
-import { useNavigation } from '@react-navigation/native'
+import React, { useEffect, useState } from "react";
+import { Text, TextInput, View } from "react-native";
+import tw from "../../utils/config/tailwindConf";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUser } from "../../utils/redux/slices/userSlice";
+import UIButton from "../basic/UIButton";
+import Input from "../basic/Input";
+import { useNavigation } from "@react-navigation/native";
 
 const QuizTemplate = (props) => {
-  const navigation = useNavigation()
-  const dispatch = useDispatch()
-  const { data } = props
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const { data } = props;
 
-  const [inputData, setInputData] = useState('')
+  const [inputData, setInputData] = useState("");
 
-  const user = useSelector((state) => state.user.value)
-  const [error,setError]=useState(false)
+  const user = useSelector((state) => state.user.value);
+  const [error, setError] = useState(false);
   const handlePress = () => {
-    console.log('quiz template data: ' + data)
-    console.log('quiz template property: ' + props.Property)
-    const isEmpty = Object.keys(data).length === 0;
-    if (!isEmpty){
-      dispatch(updateUser({ property: props.Property, value: data }))
-      setError(false)
-      navigation.navigate(props.navigateTo)
-    }else{
-      setError(true)
+    console.log("quiz template data: " + data);
+    console.log("quiz template property: " + props.Property);
+    let isEmpty = Object.keys(data).length === 0;
+    isEmpty = false;
+    if (!isEmpty) {
+      dispatch(updateUser({ property: props.Property, value: data }));
+      setError(false);
+      navigation.navigate(props.navigateTo);
+    } else {
+      setError(true);
     }
-    console.log(user)
-  }
+    console.log(user);
+  };
 
   return (
     <>
@@ -48,8 +49,7 @@ const QuizTemplate = (props) => {
         <View style={tw`flex-1 flex justify-end p-5`}>
           <UIButton
             onPress={() => {
-              handlePress()
-              
+              handlePress();
             }}
             padding="5"
             color="primary"
@@ -61,7 +61,7 @@ const QuizTemplate = (props) => {
         </View>
       </View>
     </>
-  )
-}
+  );
+};
 
-export default QuizTemplate
+export default QuizTemplate;

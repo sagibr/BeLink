@@ -1,61 +1,60 @@
-import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
-import Input from '../../../../components/basic/Input'
-import MultySelect from '../../../../components/basic/MultySelect'
-import Select from '../../../../components/basic/Select'
-import Select1 from '../../../../components/basic/Select1'
-import UIButton from '../../../../components/basic/UIButton'
-import QuizTemplate from '../../../../components/templates/QuizTemplate'
-import tw from '../../../../utils/config/tailwindConf'
-import AddTechMonth from './AddTechMonth'
-import AddTime from './AddTime'
+import React, { useEffect, useState } from "react";
+import { Text, View } from "react-native";
+import Input from "../../../../components/basic/Input";
+import MultySelect from "../../../../components/basic/MultySelect";
+import Select from "../../../../components/basic/Select";
+import Select1 from "../../../../components/basic/Select1";
+import UIButton from "../../../../components/basic/UIButton";
+import QuizTemplate from "../../../../components/templates/QuizTemplate";
+import tw from "../../../../utils/config/tailwindConf";
+import AddTechMonth from "./AddTechMonth";
+import AddTime from "./AddTime";
 
 const AddExtraKnowledge = () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState({});
   const selectArray = [
     {
-      item: 'Devloper',
-      id: 'Devloper',
+      item: "Devloper",
+      id: "Devloper",
     },
     {
-      item: 'Devops',
-      id: 'Devops',
+      item: "Devops",
+      id: "Devops",
     },
     {
-      item: 'QA',
-      id: 'QA',
+      item: "QA",
+      id: "QA",
     },
     {
-      item: 'IT',
-      id: 'IT',
+      item: "IT",
+      id: "IT",
     },
     {
-      item: 'Data Analist',
-      id: 'Data Analist',
+      item: "Data Analist",
+      id: "Data Analist",
     },
     {
-      item: 'Cyber Security',
-      id: 'Cyber Security',
+      item: "Cyber Security",
+      id: "Cyber Security",
     },
     {
-      item: 'Hr',
-      id: 'MCI',
+      item: "Hr",
+      id: "MCI",
     },
     {
-      item: 'UI/UX',
-      id: 'UI/UX',
+      item: "UI/UX",
+      id: "UI/UX",
     },
-  ]
+  ];
 
   return (
     <View style={tw`w-full h-full`}>
       <QuizTemplate
-        Title={'What is your technological knowledge?'}
+        Title={"What is your technological knowledge?"}
         Property="tech"
         data={data}
-        navigateTo={AddTime}
+        navigateTo={AddTechMonth}
         elements={
-
           <MultySelect
             SelectSemiTitle={"proffesion's"}
             SelectTitle={"Add you'r proffesion"}
@@ -66,7 +65,6 @@ const AddExtraKnowledge = () => {
             border="2"
             rounded_border="lg"
           />
-
         }
         // elements={
         //   <>
@@ -120,10 +118,10 @@ const AddExtraKnowledge = () => {
         // }
       />
     </View>
-  )
-}
+  );
+};
 
-export default AddExtraKnowledge
+export default AddExtraKnowledge;
 
 {
   // const technolagies = [{technolage:'nodejs',time:12},{technolage:'c#',time:6}]

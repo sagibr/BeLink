@@ -1,21 +1,18 @@
-import { View, Text } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import ChatRow from '../components/ChatClone/ChatRow'
-import {  useSelector } from 'react-redux'
-import tw from '../utils/config/tailwindConf'
-import NavBar from '../components/templates/NavBar'
-import BottomNavBar from '../components/templates/BottomNavBar'
+import { View, Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import ChatRow from "../components/ChatClone/ChatRow";
+import { useSelector } from "react-redux";
+import tw from "../utils/config/tailwindConf";
+import NavBar from "../components/templates/NavBar";
+import BottomNavBar from "../components/templates/BottomNavBar";
 const ChatScreen = () => {
+  const [rooms, setRooms] = useState([]);
 
-  const [rooms, setRooms] = useState([])
-  
-  const user = useSelector((state) => state.currentUser.currentUser?.user) 
-  useEffect (() => {
-    setRooms(user.chatList)
-  
-    
-  }, [])
-  
+  const user = useSelector((state) => state.currentUser.currentUser?.user);
+  useEffect(() => {
+    setRooms(user.chatList);
+  }, []);
+
   return (
     <View style={tw` w-full h-full `}>
       {/* NAVBAR */}
@@ -26,13 +23,8 @@ const ChatScreen = () => {
       <View style={tw`flex-10 `}>
         {rooms.length > 0 ? (
           rooms.map((item, index) => {
-            console.log(item)
-            return (
-              <ChatRow
-                key={index}
-                item={item}
-              />
-            )
+            console.log(item);
+            return <ChatRow key={index} item={item} />;
           })
         ) : (
           <View>
@@ -45,7 +37,7 @@ const ChatScreen = () => {
         <BottomNavBar />
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default ChatScreen
+export default ChatScreen;
