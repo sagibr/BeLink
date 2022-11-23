@@ -8,7 +8,6 @@ import UIButton from '../../../../components/basic/UIButton'
 import QuizTemplate from '../../../../components/templates/QuizTemplate'
 import tw from '../../../../utils/config/tailwindConf'
 import AddTechMonth from './AddTechMonth'
-import AddTime from './AddTime'
 
 const AddExtraKnowledge = () => {
   const [data, setData] = useState({})
@@ -53,13 +52,14 @@ const AddExtraKnowledge = () => {
         Title={'What is your technological knowledge?'}
         Property="tech"
         data={data}
-        navigateTo={AddTime}
+        navigateTo={AddTechMonth}
         elements={
           <MultySelect
             SelectSemiTitle={"proffesion's"}
             SelectTitle={"Add you'r proffesion"}
             array={selectArray}
             setData={(e) => setData(e)}
+            data={data}
             height="20"
             placeholder="profession"
             border="2"

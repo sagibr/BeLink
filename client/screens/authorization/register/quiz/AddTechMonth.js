@@ -6,20 +6,35 @@ import UIButton from '../../../../components/basic/UIButton'
 import { updateUser } from '../../../../utils/redux/slices/userSlice'
 import tw from '../../../../utils/config/tailwindConf'
 const AddTechMonth = () => {
-  const [data, setData] = useState([])
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user.value)
+
+  const data = []
   const [tech, setTech] = useState(useSelector((state) => state.user.value.tech))
 
   useEffect(() => {
-    //   const tech = useSelector((state) => state.user.value.tech)
+    dispatch(updateUser({ property: 'tech', value: tech }))
     console.log(tech)
-  })
+    console.log(user)
+  }, [tech])
 
-  //   const handleClick = () => {
-  //     const newTech = [...tech]
-  //     newTech.push({
-  //       time: data,
-  //     })
-  //   }
+  const handleClick = () => {
+    let newTech = []
+    for (let index = 0; index < tech.length; index++) {
+      newTech.push(setNewData(index))
+    }
+    setTech(newTech)
+    dispatch(updateUser({ property: 'tech', value: tech }))
+  }
+
+  const setNewData = (index) => {
+    return { ...tech[index], time: data[index] }
+  }
+
+  const handleChange = (newText) => {
+    data.push(newText)
+  }
+
   return (
     <View>
       {tech.map((item, index) => (
@@ -28,8 +43,7 @@ const AddTechMonth = () => {
             placeholder={tech[index].id}
             keyboardType="number-pad"
             onChangeText={(newText) => {
-              setData(newText)
-              console.log('Input data: ' + newText)
+              handleChange(newText)
             }}
           ></TextInput>
 
@@ -42,8 +56,8 @@ const AddTechMonth = () => {
           ></TextInput> */}
         </View>
       ))}
-      <Button onPress={() => handleClick()}>hi</Button>
-      {/* <UIButton onPress={handlePress}></UIButton> */}
+      <Button onPress={() => handleClick()}>Submit</Button>
+      {/* <UIButton onPress={() => handleClick()}>Submit</UIButton> */}
     </View>
     // <View>hello</View>
   )

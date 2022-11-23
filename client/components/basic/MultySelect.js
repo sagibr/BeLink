@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import SelectBox from 'react-native-multi-selectbox'
 import { xorBy } from 'lodash'
@@ -7,6 +7,11 @@ import { xorBy } from 'lodash'
 
 const MultySelect = (props) => {
   const [selectedValue, setSelectedValue] = useState([])
+  useEffect(() => {
+    props.setData(selectedValue)
+    console.log(selectedValue)
+    console.log(props.data)
+  }, [selectedValue])
   return (
     <View style={{ margin: 30 }}>
       <View style={{ width: '100%', alignItems: 'center' }}>
@@ -18,8 +23,8 @@ const MultySelect = (props) => {
         options={props.array}
         selectedValues={selectedValue}
         onMultiSelect={(newValue) => {
-          setSelectedValue(xorBy(selectedValue, [newValue]))
-          props.setData(selectedValue)
+          console.log(newValue)
+          setSelectedValue([...selectedValue, newValue])
         }}
         isMulti
       />
