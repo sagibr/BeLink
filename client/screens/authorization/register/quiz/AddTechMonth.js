@@ -46,11 +46,20 @@ const AddTechMonth = () => {
   }
 
   return (
-    <View>
-      <Text>HOW LONG DID YOU WORK</Text>
-      {tech.map((item, index) => (
-        <View key={index}>
+    <View style={tw`w-full h-full bg-white `}>
+        <View style={tw`flex-1 bg-primary p-5 flex justify-end`}>
+          <Text
+            style={tw`text-3xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white`}
+          >
+            HOW LONG DID YOU WORK
+          </Text>
+        </View>
+
+        <View style={tw`flex-4 flex justify-center`}>
+        {tech.map((item, index) => (
+        <View key={index} style={tw`w-full pt-1 overflow-scroll`}>
           <TextInput
+          
             placeholder={tech[index].id}
             keyboardType="number-pad"
             onChangeText={(newText) => {
@@ -59,10 +68,40 @@ const AddTechMonth = () => {
           ></TextInput>
         </View>
       ))}
-      <Button onPress={() => handleClick()} title="Submit"></Button>
-      {/* <UIButton onPress={() => handleClick()}>Submit</UIButton> */}
-    </View>
-    // <View>hello</View>
+        </View>
+
+     
+
+        <View style={tw`flex-1 flex justify-end p-5`}>
+          <UIButton
+            onPress={() => handleClick()}
+            padding="5"
+            color="primary"
+            text="submit"
+            textColor="white"
+            textSize="2xl"
+            rounded="full"
+          ></UIButton>
+        </View>
+      </View>
+    // <View>
+
+    //   <Text>HOW LONG DID YOU WORK</Text>
+    //   {tech.map((item, index) => (
+    //     <View key={index}>
+    //       <TextInput
+    //         placeholder={tech[index].id}
+    //         keyboardType="number-pad"
+    //         onChangeText={(newText) => {
+    //           handleChange(newText)
+    //         }}
+    //       ></TextInput>
+    //     </View>
+    //   ))}
+    //   <Button onPress={() => handleClick()} title="Submit"></Button>
+
+    // </View>
+
   )
 }
 

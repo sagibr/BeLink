@@ -11,6 +11,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
+import { ScrollView } from "react-native";
 import { useSelector } from 'react-redux'
 import RecieverMessage from '../components/ChatClone/RecieverMessage'
 import SenderMessage from '../components/ChatClone/SenderMessage'
@@ -85,12 +86,14 @@ const MessageScreen = ({ route }) => {
     }
     console.log(newMessage)
   }
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [chatMessages])
+  // useEffect(() => {
+  //   bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+  // }, [chatMessages])
   return (
     <SafeAreaView style={tw`w-full h-full relative`}>
+      
       <View style={tw`h-11/12 w-full overflow-scroll`}>
+      <ScrollView>
         {chatMessages.map((message, index) => {
           console.log(message.user)
           console.log(user)
@@ -101,8 +104,10 @@ const MessageScreen = ({ route }) => {
           )
           ;
         })}
-        <View ref={bottomRef} />
+        {/* <View ref={bottomRef} /> */}
+        </ScrollView>
       </View>
+     
 
       <View
         style={tw`h-1/12 w-full flex-row justify-between bg-white items-center border-t border-gray-200 px-5 py-2`}

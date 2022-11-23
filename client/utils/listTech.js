@@ -1,5 +1,5 @@
-export const professions = {
-  Developer: [
+export const DataList = [
+
     'c',
     'c++',
     'c#',
@@ -42,9 +42,6 @@ export const professions = {
     'django',
     'electron',
     'rails',
-  ],
-  Devops: ['gcp', 'bash', 'aws', 'docker', 'jenkins', 'kubernetes', 'azure', 'firebase'],
-  QA: [
     'jest',
     'cypress',
     'selenium',
@@ -53,9 +50,6 @@ export const professions = {
     'karma',
     'jasmine',
     'postman',
-  ],
-  UIUX: ['photoshop', 'figma', 'xd', 'illustrator', 'blender'],
-  all: [
     'c',
     'c++',
     `c#`,
@@ -114,5 +108,5 @@ export const professions = {
     'karma',
     'jasmine',
     'postman',
-  ],
-}
+  ]
+

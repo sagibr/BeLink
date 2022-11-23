@@ -5,7 +5,7 @@ import tw from '../../utils/config/tailwindConf'
 const PasswordInput = (props) => {
   return (
     <View style={tw`m-5`}>
-      <Text style={tw`text-2xl font-extrabold tracking-tight margin:0px text-black`}>
+      <Text style={tw`text-base font-extrabold tracking-tight margin:0px text-black`}>
         {props.placeholder}:
       </Text>
       <TextInput

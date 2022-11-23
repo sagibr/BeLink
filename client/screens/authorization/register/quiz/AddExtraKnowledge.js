@@ -12,40 +12,119 @@ import AddTime from "./AddTime";
 
 const AddExtraKnowledge = () => {
   const [data, setData] = useState({});
-  const selectArray = [
-    {
-      item: "Devloper",
-      id: "Devloper",
-    },
-    {
-      item: "Devops",
-      id: "Devops",
-    },
-    {
-      item: "QA",
-      id: "QA",
-    },
-    {
-      item: "IT",
-      id: "IT",
-    },
-    {
-      item: "Data Analist",
-      id: "Data Analist",
-    },
-    {
-      item: "Cyber Security",
-      id: "Cyber Security",
-    },
-    {
-      item: "Hr",
-      id: "MCI",
-    },
-    {
-      item: "UI/UX",
-      id: "UI/UX",
-    },
-  ];
+  const DataList = [
+    'c',
+    'c++',
+    'c#',
+    'go',
+    'java',
+    'javascript',
+    'typescript',
+    'ruby',
+    'rust',
+    'vuejs',
+    'react',
+    'svelte',
+    'bootstrap',
+    'angular',
+    'html',
+    'css',
+    'redux',
+    'sass',
+    'tailwind',
+    'mui',
+    'nodejs',
+    'express',
+    'spring',
+    'graphql',
+    'nestjs',
+    'flask',
+    'android',
+    'react-native',
+    'flutter',
+    'tensorflow',
+    'pytorch',
+    'pandas',
+    'mongodb',
+    'mysql',
+    'postgresql',
+    'redis',
+    'cassandra',
+    'hive',
+    '.net',
+    'django',
+    'electron',
+    'rails',
+    'jest',
+    'cypress',
+    'selenium',
+    'mocha',
+    'puppeteer',
+    'karma',
+    'jasmine',
+    'postman',
+    'c',
+    'c++',
+    `c#`,
+    'go',
+    'java',
+    'javascript',
+    'typescript',
+    'ruby',
+    'rust',
+    'vuejs',
+    'react',
+    'svelte',
+    'bootstrap',
+    'angular',
+    'html',
+    'css',
+    'redux',
+    'sass',
+    'tailwind',
+    'mui',
+    'nodejs',
+    'express',
+    'spring',
+    'graphql',
+    'nestjs',
+    'flask',
+    'android',
+    'react-native',
+    'flutter',
+    'tensorflow',
+    'pytorch',
+    'pandas',
+    'mongodb',
+    'mysql',
+    'postgresql',
+    'redis',
+    'cassandra',
+    'hive',
+    '.net',
+    'django',
+    'electron',
+    'rails',
+    'gcp',
+    'bash',
+    'aws',
+    'docker',
+    'jenkins',
+    'kubernetes',
+    'azure',
+    'firebase',
+    'jest',
+    'cypress',
+    'selenium',
+    'mocha',
+    'puppeteer',
+    'karma',
+    'jasmine',
+    'postman',
+  ]
+
+  const selectArray= DataList.map((e)=>{return {item: e, id: e}})
+
 
   return (
     <View style={tw`w-full h-full`}>
@@ -56,8 +135,8 @@ const AddExtraKnowledge = () => {
         navigateTo={AddTechMonth}
         elements={
           <MultySelect
-            SelectSemiTitle={"proffesion's"}
-            SelectTitle={"Add you'r proffesion"}
+            SelectSemiTitle={"skills"}
+            SelectTitle={"Chose your knowledge"}
             array={selectArray}
             setData={(e) => setData(e)}
             height="20"
