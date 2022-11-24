@@ -16,8 +16,8 @@ const AddExperience = () => {
 
   const selectArray = [
     {
-      item: 'Devloper',
-      id: 'Devloper',
+      item: 'Developer',
+      id: 'Developer',
     },
     {
       item: 'Devops',

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const BASE_URL = 'http://10.195.25.141:4000/'
-const BASE_URL = 'http://192.168.0.175:4000/'
+const BASE_URL = 'http://172.20.10.2:4000/'
+// const BASE_URL = 'http://192.168.0.175:4000/'
 // const BASE_URL = 'https://belink-server.herokuapp.com/'
 // const BASE_URL = 'http://localhost:4000/'
 
