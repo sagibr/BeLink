@@ -36,14 +36,14 @@ export const handleRegister = async (req, res) => {
   ) {
     return res.status(400).json({ message: 'missing inputs' })
   }
-
+  console.log(tech)
   const duplicate = await User.findOne({ email: email }).exec()
   if (duplicate) return res.sendStatus(409)
 
   try {
     //encrypt the password
     const hashedPassword = await bcrypt.hash(password, parseInt(PasswordSalt))
-
+    console.log(tech)
     await User.create({
       name: name,
       email: email,
