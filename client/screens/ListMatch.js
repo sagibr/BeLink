@@ -70,7 +70,6 @@ const ListMatch = () => {
     // console.log("rendered again!");
     // console.log(isLoading);
     // console.log(allUsers !== null);
-    !isLoading && console.log(typeof allUsers[0].id)
     console.log(typeof userId)
     if (!isLoading && allUsers !== null) {
       setAllUsers(allUsers.filter((user) => user.id !== userId))
@@ -78,6 +77,7 @@ const ListMatch = () => {
   }, [userId, isLoading])
 
   const removeFromAllUsers = (index) => {
+    console.log(index)
     allUsers.splice(index, 1)
     setAllUsers([...allUsers])
   }
@@ -86,8 +86,7 @@ const ListMatch = () => {
     const res = await userReq.patch('/match/swipedRight', { matchId: matchUser.id })
     console.log('match: ' + res.data.match)
     if (res.data.match) {
-      console.log('its a match')
-      navigation.navigate('Chat')
+      navigation.navigate('Match', { matchUser: matchUser, user: user })
     }
     removeFromAllUsers(index)
   }
@@ -100,28 +99,30 @@ const ListMatch = () => {
   return (
     <SafeAreaView style={tw` w-full h-full`}>
       <View style={tw`w-full h-1/5 bg-primary p-5 flex justify-end`}>
-          <Text
-            style={tw`text-3xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white`}
-          >
-            Matches we found:
-          </Text>
-        </View>
+        <Text
+          style={tw`text-3xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white`}
+        >
+          Matches we found:
+        </Text>
+      </View>
       {allUsers == null ? (
         <Text>loading...</Text>
+      ) : allUsers.length == 0 ? (
+        <Text>All Matches are over, try another time</Text>
       ) : (
-        allUsers.length== 0 ? <Text>All Matches are over, try another time</Text> :
+        
         allUsers.map((user, index) => {
           return (
-            
             <RowComponent
               handleSwipedLeft={handleSwipedLeft}
               handleSwipedRight={handleSwipedRight}
               user={user}
               setUserId={setUserId}
-              
+              index={index}
             />
           )
         })
+        
       )}
     </SafeAreaView>
   )

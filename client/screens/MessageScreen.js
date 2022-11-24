@@ -39,7 +39,7 @@ const MessageScreen = ({ route }) => {
       }
     }
     console.log(currentChat)
-    setChatMessages([...currentChat.messages])
+    setChatMessages([...currentChat?.messages])
   }, [])
   useEffect(() => {
     console.log('socket change')

@@ -8,5 +8,6 @@ export const REFRESH_TOKEN_SECRET = process.env.REFRESH_TOKEN_SECRET
 export const NODE_ENV = process.env.NODE_ENV
 
 export const allowedOrigins = [
+  "10.195.25.152:4000",
   "https://belink.netlify.app"
 ]

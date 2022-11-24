@@ -11,8 +11,8 @@ const AddProfession = () => {
 
   const selectArray = [
     {
-      item: 'Devloper',
-      id: 'Devloper',
+      item: 'Developer',
+      id: 'Developer',
     },
     {
       item: 'Devops',
@@ -44,7 +44,7 @@ const AddProfession = () => {
     },
   ]
   return (
-    <View style={tw`w-full h-full`}> 
+    <View style={tw`w-full h-full`}>
       <QuizTemplate
         Title={"I'm looking for:"}
         Property="profession"

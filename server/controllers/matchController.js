@@ -5,12 +5,16 @@ export const generateNewMatches = async (req, res) => {
   try {
     const userEmail = req.user
     const user = await User.findOne({ email: userEmail })
-
+    console.log(user)
+    console.log(user.profession)
+    console.log(user.company.isCompany)
+    console.log(user.seenUsers)
     const potentialUsers = await User.find({
       profession: user.profession,
       'company.isCompany': !user.company.isCompany,
       _id: { $nin: user.seenUsers },
     }).limit(200)
+    console.log(potentialUsers)
     const finalGrades = []
     for (const potentialUser of potentialUsers) {
       const grades = []
