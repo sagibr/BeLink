@@ -5,7 +5,7 @@ Final project after fullstack course. The project is a collaboration of a team o
 ## Table Of Contents <a name="Table"></a>
 - [Table Of Contents](#Table)
 - [Why it made and why you should use it](#why)
-- [How to run](#run)  Examplevideo
+- [How to run](#run) 
 - [Example video](#Examplevideo)
 - [Screenshots](#Screenshots)
 - [Technologies](#Technologies)
